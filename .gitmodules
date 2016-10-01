@@ -1,0 +1,3 @@
+[submodule "django-ovp-users"]
+	path = django-ovp-users
+	url = https://github.com/OpenVolunteeringPlatform/django-ovp-users.git
