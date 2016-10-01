@@ -1,0 +1,71 @@
+*.py[cod]
+*.swp
+*.swo
+.DS_Store
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# File Management
+.directory
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Sass
+*.scssc
+
+#virtualenv
+env
+src
+
+# Coverage
+coverage_html_report/
+
+#aws
+#.ebextensions
+.elasticbeanstalk/
+
+#atados
+atados.sqlite
+storage
+static
+celerybeat-schedule
+celeryev.pid
+newsletter.txt
+pag.txt
+users.csv
+gdd.txt
+
+#server files
+celerybeat.pid
+close_log.txt
+dumpdata.txt
+recurring.txt
+runcelery.sh
+runcelerycam.sh
