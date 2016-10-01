@@ -1,5 +1,7 @@
 coreapi==2.0.8
+coverage==4.2
 Django==1.10.1
+django-git-submodules==0.1.4
 django-rest-swagger==2.0.5
 djangorestframework==3.4.7
 itypes==1.1.0
