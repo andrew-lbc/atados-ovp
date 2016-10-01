@@ -2,6 +2,9 @@
 atados-ovp
 ==========
 
+.. image:: https://app.codeship.com/projects/4f1ceb70-12c4-0133-f72e-1e632cdd2280/status?branch=master
+
+
 This is atados.com.br implementation of Open Volunteering Platform.
 
 Getting Started
