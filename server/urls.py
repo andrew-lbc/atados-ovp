@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+
 import docs.urls
+import ovp_users.urls
 
 urlpatterns = [
     # Admin panel
@@ -23,4 +25,7 @@ urlpatterns = [
 
     # API Documentation
     url(r'^docs/', include(docs.urls)),
+
+    # User module endpoints
+    url(r'^', include(ovp_users.urls))
 ]
