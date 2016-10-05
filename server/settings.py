@@ -145,3 +145,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Email
+
+EMAIL_HOST='smtp.zoho.com'
+EMAIL_PORT=465
+EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER', None)
+EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD', None)
+DEFAULT_FROM_EMAIL="Atados <{}>".format(EMAIL_HOST_USER)
+EMAIL_USE_SSL=True
