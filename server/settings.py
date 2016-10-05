@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'rest_framework',
+    'rest_framework_jwt',
     'rest_framework_swagger',
     'docs',
     'ovp_users',
@@ -107,6 +109,23 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+# Rest framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
+    'PAGINATE_BY_PARAM': 'page_size',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    )
+}
+
+# User models
+
+AUTH_USER_MODEL = 'ovp_users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
