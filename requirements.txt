@@ -2,7 +2,7 @@ coreapi==2.0.8
 coverage==4.2
 Django==1.10.1
 django-extensions==1.7.4
-django-git-submodules==0.1.4
+django-git-submodules==0.1.6
 django-rest-swagger==2.0.5
 djangorestframework==3.4.7
 djangorestframework-jwt==1.8.0
@@ -14,4 +14,4 @@ requests==2.11.1
 simplejson==3.8.2
 six==1.10.0
 uritemplate==3.0.0
-ovp-users==0.1.7
+ovp-users==0.1.8
