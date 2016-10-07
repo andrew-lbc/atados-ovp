@@ -8,5 +8,4 @@ from rest_framework_swagger import renderers
 def schema_view(request):
   generator = schemas.SchemaGenerator(title='Store API')
   schema = generator.get_schema(request=request)
-  print(schema)
   return response.Response(schema)
