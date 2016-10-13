@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^docs/', include(docs.urls)),
 
     # User module endpoints
-    url(r'^', include(ovp_users.urls))
+    url(r'^', include(ovp_users.urls)),
 
     # Project module endpoints
     url(r'^', include(ovp_projects.urls))
