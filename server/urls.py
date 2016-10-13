@@ -18,6 +18,7 @@ from django.contrib import admin
 
 import docs.urls
 import ovp_users.urls
+import ovp_projects.urls
 
 urlpatterns = [
     # Admin panel
@@ -28,4 +29,7 @@ urlpatterns = [
 
     # User module endpoints
     url(r'^', include(ovp_users.urls))
+
+    # Project module endpoints
+    url(r'^', include(ovp_projects.urls))
 ]
