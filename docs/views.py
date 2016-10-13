@@ -6,6 +6,6 @@ from rest_framework_swagger import renderers
 @decorators.api_view()
 @decorators.renderer_classes([renderers.OpenAPIRenderer, renderers.SwaggerUIRenderer])
 def schema_view(request):
-  generator = schemas.SchemaGenerator(title='Store API')
+  generator = schemas.SchemaGenerator(title='Atados API')
   schema = generator.get_schema(request=request)
   return response.Response(schema)
