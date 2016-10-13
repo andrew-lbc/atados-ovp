@@ -1,6 +1,6 @@
 [submodule "django-ovp-users"]
 	path = django-ovp-users
-	url = git@github.com:OpenVolunteeringPlatform/django-ovp-users.git
+	url = https://github.com/OpenVolunteeringPlatform/django-ovp-users.git
 [submodule "django-ovp-projects"]
 	path = django-ovp-projects
-	url = git@github.com:OpenVolunteeringPlatform/django-ovp-projects.git
+	url = https://github.com/OpenVolunteeringPlatform/django-ovp-projects.git
