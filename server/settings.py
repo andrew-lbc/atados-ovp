@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'docs',
     'ovp_users',
+    'ovp_projects',
 ]
 
 MIDDLEWARE = [
