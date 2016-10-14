@@ -4,3 +4,6 @@
 [submodule "django-ovp-projects"]
 	path = django-ovp-projects
 	url = https://github.com/OpenVolunteeringPlatform/django-ovp-projects.git
+[submodule "django-ovp-core"]
+	path = django-ovp-core
+	url = https://github.com/OpenVolunteeringPlatform/django-ovp-core.git
