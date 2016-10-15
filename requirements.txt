@@ -10,7 +10,7 @@ djangorestframework-jwt==1.8.0
 itypes==1.1.0
 openapi-codec==1.1.2
 ovp-projects==0.1.0
-ovp-users==0.1.7
+ovp-users==1.0.0
 PyJWT==1.4.2
 python-dateutil==2.5.3
 requests==2.11.1
