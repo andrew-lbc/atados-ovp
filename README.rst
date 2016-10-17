@@ -38,7 +38,7 @@ Installing
 
 3. Install project dependencies::
 
-    pip instal requirements.txt
+    pip install requirements.txt
 
 4. Run migrations::
 
