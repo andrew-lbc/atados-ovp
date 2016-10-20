@@ -11,7 +11,7 @@ itypes==1.1.0
 openapi-codec==1.1.2
 ovp-core==0.1.2
 ovp-projects==0.1.0
-ovp-users==1.0.1
+ovp-users==1.0.3
 ovp-uploads==0.1.1
 PyJWT==1.4.2
 python-dateutil==2.5.3
