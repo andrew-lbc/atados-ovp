@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from dj_git_submodule import submodule
 
+PRODUCTION=False
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -153,7 +155,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 # Email
 
 EMAIL_HOST='smtp.zoho.com'
@@ -162,3 +163,24 @@ EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER', None)
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD', None)
 DEFAULT_FROM_EMAIL="Atados <{}>".format(EMAIL_HOST_USER)
 EMAIL_USE_SSL=True
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+
+
+# Media
+
+DEFAULT_FILE_STORAGE='django.core.files.storage.FileSystemStorage'
+MEDIA_ROOT='/tmp'
+
+if PRODUCTION:
+  EMAIL_BACKEND = 'email_log.backends.EmailBackend'
+  MEDIA_ROOT="/tmp"
+
+  DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+  AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+  AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
+  AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+  AWS_S3_SECURE_URLS = True
+  AWS_S3_URL_PROTOCOL = 'https'
+  AWS_HEADERS = {
+      'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
+  }
