@@ -20,6 +20,7 @@ import docs.urls
 import ovp_users.urls
 import ovp_projects.urls
 import ovp_uploads.urls
+import ovp_projects.urls
 
 urlpatterns = [
     # Admin panel
