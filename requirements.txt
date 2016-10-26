@@ -11,6 +11,7 @@ django-rest-swagger==2.0.5
 django-storages==1.5.1
 djangorestframework==3.4.7
 djangorestframework-jwt==1.8.0
+elasticsearch==5.0.0
 itypes==1.1.0
 openapi-codec==1.1.2
 ovp-core==0.1.4
@@ -25,3 +26,4 @@ requests==2.11.1
 simplejson==3.8.2
 six==1.10.0
 uritemplate==3.0.0
+urllib3==1.18
