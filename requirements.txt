@@ -18,7 +18,7 @@ ovp-core==0.1.4
 ovp-projects==0.1.1b
 ovp-search==0.1.0
 ovp-uploads==0.1.4b
-ovp-users==1.0.7
+ovp-users==1.0.8
 Pillow==3.4.2
 PyJWT==1.4.2
 python-dateutil==2.5.3
