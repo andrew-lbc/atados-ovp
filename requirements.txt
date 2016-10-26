@@ -16,7 +16,7 @@ itypes==1.1.0
 openapi-codec==1.1.2
 ovp-core==0.1.4
 ovp-projects==0.1.1b
-ovp-search==0.1.0
+ovp-search==0.1.1
 ovp-uploads==0.1.4b
 ovp-users==1.0.8
 Pillow==3.4.2
