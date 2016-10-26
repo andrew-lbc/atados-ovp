@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'ovp_projects',
     'ovp_core',
     'ovp_uploads',
+    'ovp_search',
 ]
 
 MIDDLEWARE = [

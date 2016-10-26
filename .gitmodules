@@ -13,3 +13,6 @@
 [submodule "django-ovp-uploads"]
 	path = django-ovp-uploads
 	url = https://github.com/OpenVolunteeringPlatform/django-ovp-uploads.git
+[submodule "django-ovp-search"]
+	path = django-ovp-search
+	url = https://github.com/OpenVolunteeringPlatform/django-ovp-search

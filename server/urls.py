@@ -21,6 +21,7 @@ import ovp_users.urls
 import ovp_projects.urls
 import ovp_uploads.urls
 import ovp_projects.urls
+import ovp_search.urls
 
 urlpatterns = [
     # Admin panel
@@ -36,5 +37,8 @@ urlpatterns = [
     url(r'^', include(ovp_projects.urls)),
 
     # Upload module endpoints
-    url(r'^', include(ovp_uploads.urls))
+    url(r'^', include(ovp_uploads.urls)),
+
+    # Search module endpoints
+    url(r'^', include(ovp_search.urls))
 ]
