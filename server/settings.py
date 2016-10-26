@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'rest_framework_swagger',
+    'haystack',
     'docs',
     'ovp_users',
     'ovp_projects',
@@ -171,6 +172,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 
 DEFAULT_FILE_STORAGE='django.core.files.storage.FileSystemStorage'
 MEDIA_ROOT='/tmp'
+
+# Haystack
+
+HAYSTACK_CONNECTIONS = {
+  'default': {
+    'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+    'URL': 'http://%s/' % (os.environ.get('HS_SEARCH_ENDPOINT', '127.0.0.1:9200')),
+    'INDEX_NAME': 'atadosovp'
+  },
+}
+
 
 if PRODUCTION:
   EMAIL_BACKEND = 'email_log.backends.EmailBackend'
