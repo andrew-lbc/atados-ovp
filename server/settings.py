@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'rest_framework_swagger',
+    'corsheaders',
     'haystack',
     'docs',
     'ovp_users',
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -197,3 +199,9 @@ if PRODUCTION:
   AWS_HEADERS = {
       'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
   }
+else:
+  from corsheaders.defaults import default_headers
+  CORS_ORIGIN_ALLOW_ALL = True
+  CORS_ALLOW_HEADERS = default_headers + (
+    'x-atados-unauthenticated-upload',
+  )
