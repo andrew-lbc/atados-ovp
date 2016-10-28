@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'docs',
     'ovp_users',
     'ovp_projects',
+    'ovp_organizations',
     'ovp_core',
     'ovp_uploads',
     'ovp_search',
