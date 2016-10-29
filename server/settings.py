@@ -47,10 +47,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'rest_framework_swagger',
+    'corsheaders',
     'haystack',
     'docs',
     'ovp_users',
     'ovp_projects',
+    'ovp_organizations',
     'ovp_core',
     'ovp_uploads',
     'ovp_search',
@@ -59,6 +61,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -198,28 +201,12 @@ if PRODUCTION:
       'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
   }
 
-
-
-
-
-#----- ----- ----- ----- -----
-# Config for local dev to use with client server
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = (
-  'x-requested-with',
-  'content-type',
-  'accept',
-  'origin',
-  'authorization',
-  'x-csrftoken',
-  'cache-control',
-  'x-atados-unauthenticated-upload'
-)
-
 CORS_ORIGIN_WHITELIST = (
   'localhost:3001',
 )
+else:
+  from corsheaders.defaults import default_headers
+  CORS_ORIGIN_ALLOW_ALL = True
+  CORS_ALLOW_HEADERS = default_headers + (
+    'x-unauthenticated-upload',
+  )

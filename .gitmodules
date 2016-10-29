@@ -7,12 +7,12 @@
 [submodule "django-ovp-core"]
 	path = django-ovp-core
 	url = https://github.com/OpenVolunteeringPlatform/django-ovp-core.git
-[submodule "django-ovp-nonprofits"]
-	path = django-ovp-nonprofits
-	url = https://github.com/OpenVolunteeringPlatform/django-ovp-nonprofits
 [submodule "django-ovp-uploads"]
 	path = django-ovp-uploads
 	url = https://github.com/OpenVolunteeringPlatform/django-ovp-uploads.git
 [submodule "django-ovp-search"]
 	path = django-ovp-search
 	url = https://github.com/OpenVolunteeringPlatform/django-ovp-search
+[submodule "django-ovp-organizations"]
+	path = django-ovp-organizations
+	url = https://github.com/OpenVolunteeringPlatform/django-ovp-organizations.git
