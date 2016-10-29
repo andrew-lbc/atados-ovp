@@ -197,3 +197,29 @@ if PRODUCTION:
   AWS_HEADERS = {
       'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
   }
+
+
+
+
+
+#----- ----- ----- ----- -----
+# Config for local dev to use with client server
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = (
+  'x-requested-with',
+  'content-type',
+  'accept',
+  'origin',
+  'authorization',
+  'x-csrftoken',
+  'cache-control',
+  'x-atados-unauthenticated-upload'
+)
+
+CORS_ORIGIN_WHITELIST = (
+  'localhost:3001',
+)
