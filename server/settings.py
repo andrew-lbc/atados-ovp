@@ -200,10 +200,6 @@ if PRODUCTION:
   AWS_HEADERS = {
       'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
   }
-
-CORS_ORIGIN_WHITELIST = (
-  'localhost:3001',
-)
 else:
   from corsheaders.defaults import default_headers
   CORS_ORIGIN_ALLOW_ALL = True
