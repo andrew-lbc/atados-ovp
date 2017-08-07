@@ -1,0 +1,5 @@
+mutation($lead: RegisterLeadInput!) {
+  registerLead(input: $lead) {
+    success
+  }
+}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-import docs.urls
+
 import ovp_users.urls
 import ovp_projects.urls
 import ovp_uploads.urls
@@ -24,12 +24,26 @@ import ovp_projects.urls
 import ovp_search.urls
 import ovp_organizations.urls
 
+try:
+    import docs.urls as docs_urls
+except:
+    docs_urls = []
+
+try:
+    import graphql_schema.urls as graphql_urls
+except:
+    graphql_urls = []
+
+
 urlpatterns = [
     # Admin panel
     url(r'^admin/', admin.site.urls),
 
     # API Documentation
-    url(r'^docs/', include(docs.urls)),
+    url(r'^docs/', include(docs_urls)),
+
+    # GraphQL endpoint
+    url(r'^graphql/', include(graphql_urls)),
 
     # User module endpoints
     url(r'^', include(ovp_users.urls)),

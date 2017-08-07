@@ -49,13 +49,16 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'corsheaders',
     'haystack',
-    'docs',
+    #'docs',
     'ovp_users',
     'ovp_projects',
     'ovp_organizations',
     'ovp_core',
     'ovp_uploads',
     'ovp_search',
+
+    'graphene_django',
+    'graphql_schema',
 ]
 
 MIDDLEWARE = [
@@ -186,6 +189,7 @@ HAYSTACK_CONNECTIONS = {
   },
 }
 
+from .graphql import GRAPHENE # import GraphQL root Schema
 
 if PRODUCTION:
   EMAIL_BACKEND = 'email_log.backends.EmailBackend'
@@ -206,3 +210,5 @@ else:
   CORS_ALLOW_HEADERS = default_headers + (
     'x-unauthenticated-upload',
   )
+
+
