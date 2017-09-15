@@ -50,12 +50,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'haystack',
     'docs',
-    'ovp_users',
-    'ovp_projects',
-    'ovp_organizations',
-    'ovp_core',
-    'ovp_uploads',
-    'ovp_search',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +132,7 @@ REST_FRAMEWORK = {
 
 # User models
 
-AUTH_USER_MODEL = 'ovp_users.User'
+# AUTH_USER_MODEL = 'ovp_users.User'
 
 
 # Internationalization
