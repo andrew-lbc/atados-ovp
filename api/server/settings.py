@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework_jwt',
     'rest_framework_swagger',
     'docs',
+    'channels.pv'
 ] + get_core_apps()
 
 MIDDLEWARE = [
