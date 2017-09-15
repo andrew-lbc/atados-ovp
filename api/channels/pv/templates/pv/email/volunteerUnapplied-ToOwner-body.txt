@@ -1,0 +1,5 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Volunteer unapplied from {{apply.project.name}}.
+{% endblock content %}

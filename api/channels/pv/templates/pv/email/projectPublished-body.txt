@@ -1,0 +1,5 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Project <b>{{project.name}}</b> was published.
+{% endblock content %}
