@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+class PVUserInfo(models.Model):
+  can_apply = models.BooleanField(default=False)
