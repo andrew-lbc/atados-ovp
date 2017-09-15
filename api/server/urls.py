@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+import sandbox.urls
 import docs.urls
 
 urlpatterns = [
@@ -24,4 +25,7 @@ urlpatterns = [
 
     # API Documentation
     url(r'^docs/', include(docs.urls)),
+
+    # API
+    url(r'^', include(sandbox.urls)),
 ]
