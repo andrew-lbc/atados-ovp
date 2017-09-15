@@ -9,17 +9,17 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+# Submodules config
+from dj_git_submodule import submodule
+submodule.add(submodule.locate('django-*'))
+
 
 import os
-from dj_git_submodule import submodule
-
+from ovp import get_core_apps
 PRODUCTION=False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Submodules config
-submodule.add(submodule.locate('django-*'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,11 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_jwt',
     'rest_framework_swagger',
-    'corsheaders',
-    'haystack',
     'docs',
-    'ovp',
-]
+] + get_core_apps()
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,7 +130,8 @@ REST_FRAMEWORK = {
 
 # User models
 
-# AUTH_USER_MODEL = 'ovp_users.User'
+AUTH_USER_MODEL = 'users.User'
+SILENCED_SYSTEM_CHECKS = ["auth.E003", "auth.W004"]
 
 
 # Internationalization
