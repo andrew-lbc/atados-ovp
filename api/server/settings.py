@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'haystack',
     'docs',
+    'ovp',
 ]
 
 MIDDLEWARE = [
