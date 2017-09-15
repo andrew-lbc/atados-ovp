@@ -13,9 +13,10 @@ before_channel_request.connect(intercept_apply)
 def create_pv_profile(sender, *args, **kwargs):
   request = kwargs["request"]
   response = kwargs["response"]
-  if request.method.lower() == "post" and response.status_code == 201:
-    user = User.objects.get(uuid=response.data["uuid"])
-    PVUserInfo.objects.create(user=user)
+  if request.channel == "pv":
+    if request.method.lower() == "post" and response.status_code == 201:
+      user = User.objects.get(uuid=response.data["uuid"])
+      PVUserInfo.objects.create(user=user)
 
 after_channel_request.connect(create_pv_profile, sender=UserResourceViewSet)
 

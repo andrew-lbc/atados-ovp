@@ -21,8 +21,13 @@ class ApplySignalTestCase(TestCase):
       'password': 'test@password.com'
     }
 
+    # Creating user on PV creates PVUserInfo
     self.assertEqual(PVUserInfo.objects.count(), 0)
     response = self.client.post(reverse('user-list'), data, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(PVUserInfo.objects.count(), 1)
     self.assertEqual(str(PVUserInfo.objects.first().user.uuid), response.data["uuid"])
     self.assertEqual(PVUserInfo.objects.first().can_apply, False)
+
+    # Creating user on other channel does not create PVUserInfo
+    response = self.client.post(reverse('user-list'), data, format="json", HTTP_X_OVP_CHANNEL="default")
+    self.assertEqual(PVUserInfo.objects.count(), 1)
