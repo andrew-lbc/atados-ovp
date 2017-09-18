@@ -13,7 +13,6 @@ from rest_framework.test import APIClient
 @override_settings(DEFAULT_SEND_EMAIL="sync")
 class ApplySignalTestCase(TestCase):
   def setUp(self):
-    #user = User.objects.create(email="test@email.com", password="test_password", object_channel="pv")
     self.client = APIClient()
 
   def test_pvinfo_is_created_when_user_is_created(self):

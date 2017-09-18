@@ -5,3 +5,4 @@ class PvConfig(AppConfig):
 
   def ready(self):
     from . import signals
+    from .models import signals

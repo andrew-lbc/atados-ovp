@@ -177,9 +177,8 @@ MEDIA_ROOT='/tmp'
 
 HAYSTACK_CONNECTIONS = {
   'default': {
-    'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-    'URL': 'http://%s/' % (os.environ.get('HS_SEARCH_ENDPOINT', '127.0.0.1:9200')),
-    'INDEX_NAME': 'atadosovp'
+    'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+    'PATH': os.path.join('/tmp', 'atados_whoosh_index'),
   },
 }
 
@@ -196,6 +195,14 @@ if PRODUCTION:
   AWS_S3_URL_PROTOCOL = 'https'
   AWS_HEADERS = {
       'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
+  }
+
+  HAYSTACK_CONNECTIONS = {
+    'default': {
+      'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+      'URL': 'http://%s/' % (os.environ.get('HS_SEARCH_ENDPOINT', '127.0.0.1:9200')),
+      'INDEX_NAME': 'atadosovp'
+    },
   }
 else:
   from corsheaders.defaults import default_headers

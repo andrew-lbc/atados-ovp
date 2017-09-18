@@ -1,4 +1,5 @@
 from django.db import models
+from channels.pv import emails
 from ovp.apps.channels.models.abstract import ChannelRelationship
 
 class PVUserInfo(ChannelRelationship):
@@ -11,3 +12,9 @@ class PVMeeting(ChannelRelationship):
 class PVMeetingAppointment(ChannelRelationship):
   meeting = models.ForeignKey("PVMeeting")
   user = models.ForeignKey("users.User")
+
+  def mailing(self, async_mail=None):
+    return emails.AppointmentMail(self, async_mail)
+
+  def save(self, *args, **kwargs):
+    super(PVMeetingAppointment, self).save(*args, **kwargs)
