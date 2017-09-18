@@ -165,6 +165,7 @@ EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD', None)
 DEFAULT_FROM_EMAIL="Atados <{}>".format(EMAIL_HOST_USER)
 EMAIL_USE_SSL=True
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = '/tmp/atados-ovp-messages'
 
 
 # Media
