@@ -59,3 +59,6 @@ class ApplySignalTestCase(TestCase):
     self.client.force_authenticate(user=user_default)
     response = self.client.post(reverse("project-applies-apply", ["test-project"]), format="json", HTTP_X_OVP_CHANNEL="default")
     self.assertEqual(response.status_code, 200)
+
+  def test_cant_request_pv_routes_from_other_channel(self):
+    pass

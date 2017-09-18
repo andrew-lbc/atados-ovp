@@ -5,9 +5,9 @@ class PVUserInfo(ChannelRelationship):
   user = models.OneToOneField("users.User")
   can_apply = models.BooleanField(default=False)
 
-class PVMeetingDate(ChannelRelationship):
+class PVMeeting(ChannelRelationship):
   date = models.DateTimeField()
 
 class PVMeetingAppointment(ChannelRelationship):
-  meeting_date = models.ForeignKey("PVMeetingDate")
+  meeting = models.ForeignKey("PVMeeting")
   user = models.ForeignKey("users.User")
