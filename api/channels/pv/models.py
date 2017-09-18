@@ -9,5 +9,5 @@ class PVMeetingDate(ChannelRelationship):
   date = models.DateTimeField()
 
 class PVMeetingAppointment(ChannelRelationship):
-  meeting_date = models.ForeignKey('PVMeetingDate')
+  meeting_date = models.ForeignKey("PVMeetingDate")
   user = models.ForeignKey("users.User")

@@ -18,6 +18,7 @@ from django.contrib import admin
 
 import sandbox.urls
 import docs.urls
+import channels.pv.urls
 
 urlpatterns = [
     # Admin panel
@@ -28,4 +29,7 @@ urlpatterns = [
 
     # API
     url(r'^', include(sandbox.urls)),
+
+    # PV Specific endpoints
+    url(r'^pv-channel/', include(channels.pv.urls)),
 ]
