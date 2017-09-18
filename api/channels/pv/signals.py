@@ -26,7 +26,7 @@ def create_pv_profile(sender, *args, **kwargs):
   """
   instance = kwargs["instance"]
   if instance.channel.slug == "pv" and kwargs["created"] and not kwargs["raw"]:
-    PVUserInfo.objects.create(user=instance)
+    PVUserInfo.objects.create(user=instance, object_channel="pv")
 
 before_channel_request.connect(intercept_apply, sender=ApplyResourceViewSet)
 post_save.connect(create_pv_profile, sender=User)
