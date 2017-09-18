@@ -1,6 +1,7 @@
 from django.db.models.signals import post_save
 
 from channels.pv.models import PVUserInfo
+from channels.pv.views import MeetingViewSet
 
 from ovp.apps.projects.views.apply import ApplyResourceViewSet
 
@@ -28,5 +29,14 @@ def create_pv_profile(sender, *args, **kwargs):
   if instance.channel.slug == "pv" and kwargs["created"] and not kwargs["raw"]:
     PVUserInfo.objects.create(user=instance, object_channel="pv")
 
+def block_non_pv_requests(sender, *args, **kwargs):
+  """
+  Block requests to pv resources from outside the channel
+  """
+  request = kwargs["request"]
+  if request.channel != "pv":
+    raise InterceptRequest(response.Response({'detail': 'This resource is only acessible through "pv" channel.'}, status=400))
+
+before_channel_request.connect(block_non_pv_requests, sender=MeetingViewSet)
 before_channel_request.connect(intercept_apply, sender=ApplyResourceViewSet)
 post_save.connect(create_pv_profile, sender=User)
