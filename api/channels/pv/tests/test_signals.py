@@ -62,9 +62,18 @@ class ApplySignalTestCase(TestCase):
 @override_settings(DEFAULT_SEND_EMAIL="sync")
 class BlockSignalTestCase(TestCase):
   def test_cant_request_pv_routes_from_other_channel(self):
+    user = User.objects.create(email="sample@sample.com", password="abcabcabc", object_channel="pv")
+
     client = APIClient()
     response = client.get(reverse("meeting-list"), json=True)
     self.assertEqual(response.status_code, 400)
 
     response = client.get(reverse("meeting-list"), json=True, HTTP_X_OVP_CHANNEL="pv")
+    self.assertEqual(response.status_code, 200)
+
+    client.force_authenticate(user=user)
+    response = client.post(reverse("quiz-respond"), data={"answers": ["a", "b", "c", "d", "e"]}, format="json")
+    self.assertEqual(response.status_code, 400)
+
+    response = client.post(reverse("quiz-respond"), data={"answers": ["a", "b", "c", "d", "e"]}, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 200)

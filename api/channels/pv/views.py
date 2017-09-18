@@ -75,3 +75,37 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
       self.permission_classes = (permissions.IsAuthenticated, )
 
     return super(MeetingViewSet, self).get_permissions()
+
+
+@ChannelViewSet
+class QuizViewSet(viewsets.GenericViewSet):
+  """
+  Quiz viewpoints.
+
+  This will be deprecated once OVP has forms functionality.
+  """
+  permission_classes = (permissions.IsAuthenticated, )
+
+  @decorators.list_route(["POST"])
+  def respond(self, request, *args, **kwargs):
+    correct_answers = ["a", "b", "c", "d", "e"]
+    threesold = 0.8
+
+    answers = request.data.get("answers", [])
+    if len(answers) != len(correct_answers):
+      return response.Response({"detail": "Answer amount does not match questions amount."}, status=status.HTTP_400_BAD_REQUEST)
+
+    matches = 0
+    for i, answer in enumerate(answers):
+      if answer == correct_answers[i]:
+        matches += 1
+
+    result = matches/len(answers)
+
+    if result < threesold:
+      return response.Response({"detail": "You did not meet the correct answers threesold."}, status=status.HTTP_400_BAD_REQUEST)
+
+    request.user.pvuserinfo.can_apply = True
+    request.user.pvuserinfo.save()
+
+    return response.Response({"detail": "You have passed the test."}, status=status.HTTP_200_OK)

@@ -2,6 +2,7 @@ from django.db.models.signals import post_save
 
 from channels.pv.models import PVUserInfo
 from channels.pv.views import MeetingViewSet
+from channels.pv.views import QuizViewSet
 
 from ovp.apps.projects.views.apply import ApplyResourceViewSet
 
@@ -38,5 +39,6 @@ def block_non_pv_requests(sender, *args, **kwargs):
     raise InterceptRequest(response.Response({'detail': 'This resource is only acessible through "pv" channel.'}, status=400))
 
 before_channel_request.connect(block_non_pv_requests, sender=MeetingViewSet)
+before_channel_request.connect(block_non_pv_requests, sender=QuizViewSet)
 before_channel_request.connect(intercept_apply, sender=ApplyResourceViewSet)
 post_save.connect(create_pv_profile, sender=User)
