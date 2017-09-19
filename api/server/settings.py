@@ -31,12 +31,12 @@ SECRET_KEY = '0o55a_%0s2t6)+j9+7wj5e^-z=t0ql#7-+ncrtnn8q(kl+em6v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".localhost"]
 
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = get_core_apps() + [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'docs',
     'channels.pv'
-] + get_core_apps()
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
