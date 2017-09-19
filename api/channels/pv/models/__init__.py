@@ -10,7 +10,7 @@ class PVMeeting(ChannelRelationship):
   date = models.DateTimeField()
 
 class PVMeetingAppointment(ChannelRelationship):
-  meeting = models.ForeignKey("PVMeeting")
+  meeting = models.ForeignKey("PVMeeting", related_name="appointments")
   user = models.ForeignKey("users.User")
 
   def mailing(self, async_mail=None):
