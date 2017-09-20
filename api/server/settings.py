@@ -182,6 +182,10 @@ HAYSTACK_CONNECTIONS = {
   },
 }
 
+# Authentication backends
+
+AUTHENTICATION_BACKENDS = ["ovp.apps.users.auth.backends.ChannelBasedAuthentication"]
+
 
 if PRODUCTION:
   EMAIL_BACKEND = 'email_log.backends.EmailBackend'
