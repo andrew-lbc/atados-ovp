@@ -11,6 +11,11 @@ class PVUserInfoAdmin(ChannelModelAdmin):
     'user__email'
   ]
 
+  def get_model_perms(self, request):
+    if request.user.channel.slug != "pv":
+      return {'change': False, 'add': False, 'delete': False}
+    return super(PVUserInfoAdmin, self).get_model_perms(request)
+
   def get_email(self, obj):
     return obj.user.email
 

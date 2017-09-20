@@ -19,5 +19,10 @@ class PVMeetingAdmin(ChannelModelAdmin):
     PVMeetingAppointmentInline
   ]
 
+  def get_model_perms(self, request):
+    if request.user.channel.slug != "pv":
+      return {'change': False, 'add': False, 'delete': False}
+    return super(PVMeetingAdmin, self).get_model_perms(request)
+
 
 admin_site.register(PVMeeting, PVMeetingAdmin)
