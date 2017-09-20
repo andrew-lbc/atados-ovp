@@ -213,4 +213,5 @@ else:
   CORS_ORIGIN_ALLOW_ALL = True
   CORS_ALLOW_HEADERS = default_headers + (
     'x-unauthenticated-upload',
+    'x-ovp-channel'
   )
