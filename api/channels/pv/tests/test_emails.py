@@ -28,3 +28,19 @@ class TestEmailTriggers(TestCase):
 
     self.assertTrue(len(mail.outbox) == 1)
     self.assertTrue(mail.outbox[0].subject == get_email_subject("pv", "appointmentCreated", "Appointment created"))
+
+  def test_userinfo_can_apply_triggers_email(self):
+    """Assert that email is triggered when PVUserInfo.can_apply == True """
+    mail.outbox = []
+
+    self.user.pvuserinfo.can_apply = True
+    self.user.pvuserinfo.save()
+
+    self.assertTrue(len(mail.outbox) == 1)
+    self.assertTrue(mail.outbox[0].subject == get_email_subject("pv", "userApplyingApproved", "You are approved."))
+
+    self.user.pvuserinfo.save()
+    self.assertTrue(len(mail.outbox) == 1)
+
+    User.objects.last().save()
+    self.assertTrue(len(mail.outbox) == 1)
