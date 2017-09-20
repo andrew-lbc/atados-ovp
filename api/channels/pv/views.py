@@ -45,7 +45,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
   @decorators.list_route(["GET"])
   def appointments(self, request, *args, **kwargs):
-    appointments = self.get_queryset().filter(pvmeetingappointment__user=request.user, channel__slug=request.channel)
+    appointments = self.get_queryset().filter(appointments__user=request.user, channel__slug=request.channel)
     serializer = self.get_serializer(appointments, many=True, context=self.get_serializer_context())
     return response.Response(serializer.data, status=status.HTTP_200_OK)
 
