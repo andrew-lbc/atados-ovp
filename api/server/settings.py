@@ -47,6 +47,7 @@ INSTALLED_APPS = get_core_apps() + [
     'rest_framework',
     'rest_framework_jwt',
     'rest_framework_swagger',
+    'debug_toolbar',
     'docs',
     'channels.pv'
 ]
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'ovp.apps.channels.middlewares.channel.ChannelRecognizerMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -215,3 +217,4 @@ else:
     'x-unauthenticated-upload',
     'x-ovp-channel'
   )
+  INTERNAL_IPS = ('127.0.0.1', )

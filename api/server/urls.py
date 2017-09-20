@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf import settings
 
 import sandbox.urls
 import docs.urls
@@ -29,3 +30,9 @@ urlpatterns = [
     # PV Specific endpoints
     url(r'^pv-channel/', include(channels.pv.urls)),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

@@ -2,4 +2,4 @@
 django-git-submodules
 django-rest-swagger
 celery
-pyrabbit
+django-debug-toolbar
