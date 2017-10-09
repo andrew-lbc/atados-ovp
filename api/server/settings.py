@@ -188,6 +188,12 @@ HAYSTACK_CONNECTIONS = {
 
 AUTHENTICATION_BACKENDS = ["ovp.apps.users.auth.backends.ChannelBasedAuthentication"]
 
+# JWT Auth
+
+JWT_AUTH = {
+  'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
+}
+
 
 if PRODUCTION:
   EMAIL_BACKEND = 'email_log.backends.EmailBackend'
