@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
+from ovp.apps.core.helpers import generate_slug
 
 def foward_func(apps, schema_editor):
     Channel = apps.get_model("channels", "Channel")
@@ -17,10 +18,14 @@ def foward_func(apps, schema_editor):
     Cause = apps.get_model("core", "Cause")
 
     for skill in skills:
-      Skill.objects.create(name=skill, channel=channel)
+      skill = Skill.objects.create(name=skill, channel=channel)
+      skill.slug = generate_slug(skill.channel.slug, Skill, skill.name)
+      skill.save()
 
     for cause in causes:
-      Cause.objects.create(name=cause, channel=channel)
+      cause = Cause.objects.create(name=cause, channel=channel)
+      cause.slug = generate_slug(cause.channel.slug, Cause, cause.name)
+      cause.save()
 
 def rewind_func(apps, schema_editor):
     Channel = apps.get_model("channels", "Channel")
