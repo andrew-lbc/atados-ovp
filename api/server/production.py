@@ -3,6 +3,9 @@ import os
 # Disable debug
 DEBUG = True
 
+# Allowed hosts
+ALLOWED_HOSTS = [".api.beta.atados.com.br"]
+
 # Secret key
 # SECRET_KEY=False
 
