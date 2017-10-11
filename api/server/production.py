@@ -57,4 +57,6 @@ GCS_USE_UNSIGNED_URLS = True
 GCS_BUCKET = 'atados-v3'
 
 # Database
-DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
+DATABASES = {
+  'default': DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
+}
