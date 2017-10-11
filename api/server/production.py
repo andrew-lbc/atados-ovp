@@ -1,4 +1,4 @@
-#DEBUG=False
+DEBUG = False
 #SECRET_KEY=False
 EMAIL_BACKEND = 'email_log.backends.EmailBackend'
 MEDIA_ROOT= '/tmp'
@@ -20,3 +20,5 @@ HAYSTACK_CONNECTIONS = {
     'INDEX_NAME': 'atadosovp'
   },
 }
+
+# Logging
