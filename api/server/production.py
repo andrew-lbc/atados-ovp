@@ -1,6 +1,13 @@
-DEBUG = False
-#SECRET_KEY=False
+# Disable debug
+DEBUG = True
+
+# Secret key
+# SECRET_KEY=False
+
+# Email
 EMAIL_BACKEND = 'email_log.backends.EmailBackend'
+
+# Media and static files
 MEDIA_ROOT= '/tmp'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
