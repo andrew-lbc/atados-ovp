@@ -3,5 +3,6 @@ django-git-submodules
 django-rest-swagger
 celery
 django-debug-toolbar
+dj-database-url
 -e git://github.com/leonardoarroyo/django-gcloud-storage.git@49fdc994e62926f47f17cffac83178015af35986#egg=django_gcloud_storage
 

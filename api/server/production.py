@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 # Base dir
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,3 +55,6 @@ GCS_PROJECT = 'beta-atados'
 GCS_CREDENTIALS_FILE_PATH = os.path.abspath(os.path.join(BASE_DIR, '../../../', 'storage.json'))
 GCS_USE_UNSIGNED_URLS = True
 GCS_BUCKET = 'atados-v3'
+
+# Database
+DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
