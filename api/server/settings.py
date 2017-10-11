@@ -9,13 +9,23 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-# Submodules config
-from dj_git_submodule import submodule
-submodule.add(submodule.locate('django-*'))
-
 import os
 import datetime
-from ovp import get_core_apps
+from dj_git_submodule import submodule
+
+try:
+  with open('/env', 'r') as f:
+    env = f.read().strip()
+    f.close()
+except FileNotFoundError:
+  env = 'dev'
+
+if env in ['production', 'homolog']:
+  submodule.prop = '__name__' # Gotta read __name__ instead of __file__ if running through gunicorn
+
+# Submodules
+submodule.add(submodule.locate('django-*'))
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,7 +43,7 @@ ALLOWED_HOSTS = [".localhost"]
 
 
 # Application definition
-
+from ovp import get_core_apps
 INSTALLED_APPS = get_core_apps() + [
     'django.contrib.admin',
     'django.contrib.auth',
