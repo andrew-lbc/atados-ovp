@@ -50,6 +50,7 @@ LOGGING = {
 
 # Storage
 DEFAULT_FILE_STORAGE = 'django_gcloud_storage.DjangoGCloudStorage'
-GCS_PROJECT = 'atados-v3'
+GCS_PROJECT = 'beta-atados'
 GCS_CREDENTIALS_FILE_PATH = os.path.abspath(os.path.join(BASE_DIR, '../../../', 'storage.json'))
 GCS_USE_UNSIGNED_URLS = True
+GCS_BUCKET = 'atados-v3'
