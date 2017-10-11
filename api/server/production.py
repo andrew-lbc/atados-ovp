@@ -4,10 +4,10 @@ import os
 DEBUG = True
 
 # Allowed hosts
-ALLOWED_HOSTS = [".api.beta.atados.com.br"]
+ALLOWED_HOSTS = ['.api.beta.atados.com.br']
 
 # Secret key
-# SECRET_KEY=False
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # Email
 EMAIL_BACKEND = 'email_log.backends.EmailBackend'
@@ -24,3 +24,29 @@ HAYSTACK_CONNECTIONS = {
 }
 
 # Logging
+LOGGING = {
+  'version': 1,
+  'disable_existing_loggers': False,
+  'handlers': {
+    'file': {
+      'level': 'DEBUG',
+      'class': 'logging.FileHandler',
+      'filename': '/home/ubuntu/api/logs/django.log',
+    },
+  },
+  'loggers': {
+    'django': {
+      'handlers': ['file'],
+      'level': 'DEBUG',
+      'propagate': True,
+
+    },
+  },
+}
+
+
+# Storage
+DEFAULT_FILE_STORAGE = 'django_gcloud_storage.DjangoGCloudStorage'
+GCS_PROJECT = 'atados-v3'
+GCS_CREDENTIALS_FILE_PATH = os.path.abspath(os.path.join(BASE_DIR, '../../../', 'storage.json'))
+GCS_USE_UNSIGNED_URLS = True
