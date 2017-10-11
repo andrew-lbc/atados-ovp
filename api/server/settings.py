@@ -204,12 +204,6 @@ JWT_AUTH = {
   'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
 }
 
-try:
-  with open('/env', 'r') as f:
-    env = f.read().strip()
-    f.close()
-except FileNotFoundError:
-  env = 'dev'
 
 if env == 'production':
   from .production import *
