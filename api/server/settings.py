@@ -204,6 +204,14 @@ JWT_AUTH = {
   'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
 }
 
+# Cors headers
+
+CORS_ALLOW_HEADERS = default_headers + (
+  'x-unauthenticated-upload',
+  'x-ovp-channel',
+)
+
+
 
 if env == 'production':
   from .production import *
