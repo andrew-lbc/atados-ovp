@@ -206,6 +206,7 @@ JWT_AUTH = {
 
 # Cors headers
 
+from corsheaders.defaults import default_headers
 CORS_ALLOW_HEADERS = default_headers + (
   'x-unauthenticated-upload',
   'x-ovp-channel',
