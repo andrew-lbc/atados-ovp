@@ -9,19 +9,26 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-# Submodules config
+import os
+import datetime
 from dj_git_submodule import submodule
+
+try:
+  with open('/env', 'r') as f:
+    env = f.read().strip()
+    f.close()
+except FileNotFoundError:
+  env = 'dev'
+
+if env in ['production', 'homolog']:
+  submodule.prop = '__name__' # Gotta read __name__ instead of __file__ if running through gunicorn
+
+# Submodules
 submodule.add(submodule.locate('django-*'))
 
 
-import os
-import datetime
-from ovp import get_core_apps
-PRODUCTION=False
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -36,7 +43,7 @@ ALLOWED_HOSTS = [".localhost"]
 
 
 # Application definition
-
+from ovp import get_core_apps
 INSTALLED_APPS = get_core_apps() + [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -157,6 +164,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Email
@@ -196,33 +204,17 @@ JWT_AUTH = {
   'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
 }
 
+# Cors headers
 
-if PRODUCTION:
-  EMAIL_BACKEND = 'email_log.backends.EmailBackend'
-  MEDIA_ROOT="/tmp"
+from corsheaders.defaults import default_headers
+CORS_ALLOW_HEADERS = default_headers + (
+  'x-unauthenticated-upload',
+  'x-ovp-channel',
+)
 
-  DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-  AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-  AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
-  AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-  AWS_S3_SECURE_URLS = True
-  AWS_S3_URL_PROTOCOL = 'https'
-  AWS_HEADERS = {
-      'Expires': 'Sat, 31 Dec 2016 23:59:59 GMT'
-  }
 
-  HAYSTACK_CONNECTIONS = {
-    'default': {
-      'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-      'URL': 'http://%s/' % (os.environ.get('HS_SEARCH_ENDPOINT', '127.0.0.1:9200')),
-      'INDEX_NAME': 'atadosovp'
-    },
-  }
+
+if env == 'production':
+  from .production import *
 else:
-  from corsheaders.defaults import default_headers
-  CORS_ORIGIN_ALLOW_ALL = True
-  CORS_ALLOW_HEADERS = default_headers + (
-    'x-unauthenticated-upload',
-    'x-ovp-channel'
-  )
-  INTERNAL_IPS = ('127.0.0.1', )
+  from .dev import *
