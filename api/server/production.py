@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 
 # Allowed hosts
-ALLOWED_HOSTS = ['.api.beta.atados.com.br']
+ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br']
 
 # Secret key
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
