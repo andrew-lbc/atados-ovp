@@ -205,14 +205,14 @@ JWT_AUTH = {
 }
 
 # Cors headers
-
 from corsheaders.defaults import default_headers
 CORS_ALLOW_HEADERS = default_headers + (
   'x-unauthenticated-upload',
   'x-ovp-channel',
 )
 
-
+# Jet
+JET_INDEX_DASHBOARD = 'ovp.admin.jet.dashboard.CustomIndexDashboard'
 
 if env == 'production':
   from .production import *
