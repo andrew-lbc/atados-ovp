@@ -37,18 +37,18 @@ LOGGING = {
       'class': 'logging.FileHandler',
       'filename': '/home/ubuntu/api/logs/django.log',
     },
-  },
-  'loggers': {
-    'django': {
-      'handlers': ['file'],
-      'level': 'DEBUG',
-      'propagate': True,
-    },
     'rollbar': {
       'filters': ['require_debug_false'],
       'access_token': os.environ.get('ROLLBAR_SERVER_TOKEN'),
       'environment': 'production',
       'class': 'rollbar.logger.RollbarHandler',
+    },
+  },
+  'loggers': {
+    'django': {
+      'handlers': ['file', 'rollbar'],
+      'level': 'DEBUG',
+      'propagate': True,
     },
   },
 }
