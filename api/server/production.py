@@ -5,7 +5,7 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Disable debug
-DEBUG = True
+DEBUG = False
 
 # Allowed hosts
 ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br']
