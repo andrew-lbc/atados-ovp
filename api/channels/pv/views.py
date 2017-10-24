@@ -88,12 +88,12 @@ class QuizViewSet(viewsets.GenericViewSet):
 
   @decorators.list_route(["POST"])
   def respond(self, request, *args, **kwargs):
-    correct_answers = ["a", "b", "c", "d", "e"]
-    threesold = 0.8
+    correct_answers = ["a", "c", "b", "a", "e"]
+    threesold = 1
 
     answers = request.data.get("answers", [])
     if len(answers) != len(correct_answers):
-      return response.Response({"detail": "Answer amount does not match questions amount."}, status=status.HTTP_400_BAD_REQUEST)
+      return response.Response({"title": "answers_incomplete", "detail": "Answer amount does not match questions amount."}, status=status.HTTP_400_BAD_REQUEST)
 
     matches = 0
     for i, answer in enumerate(answers):
@@ -103,7 +103,7 @@ class QuizViewSet(viewsets.GenericViewSet):
     result = matches/len(answers)
 
     if result < threesold:
-      return response.Response({"detail": "You did not meet the correct answers threesold."}, status=status.HTTP_400_BAD_REQUEST)
+      return response.Response({"title": "answers_not_correct", "detail": "You did not meet the correct answers threesold."}, status=status.HTTP_400_BAD_REQUEST)
 
     request.user.pvuserinfo.can_apply = True
     request.user.pvuserinfo.save()
