@@ -43,7 +43,12 @@ LOGGING = {
       'handlers': ['file'],
       'level': 'DEBUG',
       'propagate': True,
-
+    },
+    'rollbar': {
+      'filters': ['require_debug_false'],
+      'access_token': os.environ.get('ROLLBAR_SERVER_TOKEN'),
+      'environment': 'production',
+      'class': 'rollbar.logger.RollbarHandler',
     },
   },
 }
@@ -59,4 +64,13 @@ GCS_BUCKET = 'atados-v3'
 # Database
 DATABASES = {
   'default': dj_database_url.parse(os.environ['DATABASE_URL'])
+}
+
+# Rollbar
+
+ROLLBAR = {
+  'access_token': os.environ.get('ROLLBAR_SERVER_TOKEN'),
+  'environment': 'production',
+  'branch': 'master',
+  'root': BASE_DIR,
 }

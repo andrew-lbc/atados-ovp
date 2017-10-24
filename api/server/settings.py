@@ -132,7 +132,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     'PAGINATE_BY_PARAM': 'page_size',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'ovp.apps.users.auth.jwt_authenticator.ChannelJSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
@@ -205,6 +205,7 @@ JWT_AUTH = {
 }
 
 # Cors headers
+
 from corsheaders.defaults import default_headers
 CORS_ALLOW_HEADERS = default_headers + (
   'x-unauthenticated-upload',
@@ -212,6 +213,7 @@ CORS_ALLOW_HEADERS = default_headers + (
 )
 
 # Jet
+
 JET_INDEX_DASHBOARD = 'ovp.admin.jet.dashboard.CustomIndexDashboard'
 
 if env == 'production':
