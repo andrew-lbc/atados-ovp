@@ -5,7 +5,7 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Disable debug
-DEBUG = True
+DEBUG = False
 
 # Allowed hosts
 ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br']
@@ -31,19 +31,29 @@ HAYSTACK_CONNECTIONS = {
 LOGGING = {
   'version': 1,
   'disable_existing_loggers': False,
+  'filters': {
+    'require_debug_false': {
+      '()': 'django.utils.log.RequireDebugFalse',
+    }
+  },
   'handlers': {
     'file': {
       'level': 'DEBUG',
       'class': 'logging.FileHandler',
       'filename': '/home/ubuntu/api/logs/django.log',
     },
+    'rollbar': {
+      'filters': ['require_debug_false'],
+      'access_token': os.environ.get('ROLLBAR_SERVER_TOKEN'),
+      'environment': 'production',
+      'class': 'rollbar.logger.RollbarHandler',
+    },
   },
   'loggers': {
     'django': {
-      'handlers': ['file'],
+      'handlers': ['file', 'rollbar'],
       'level': 'DEBUG',
       'propagate': True,
-
     },
   },
 }
@@ -59,4 +69,13 @@ GCS_BUCKET = 'atados-v3'
 # Database
 DATABASES = {
   'default': dj_database_url.parse(os.environ['DATABASE_URL'])
+}
+
+# Rollbar
+
+ROLLBAR = {
+  'access_token': os.environ.get('ROLLBAR_SERVER_TOKEN'),
+  'environment': 'production',
+  'branch': 'master',
+  'root': BASE_DIR,
 }
