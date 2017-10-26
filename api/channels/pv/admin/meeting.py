@@ -14,7 +14,7 @@ class PVMeetingAppointmentInline(TabularInline):
 
 class PVMeetingAdmin(ChannelModelAdmin):
   list_display = ['id', 'date']
-  fields = ['date']
+  fields = ['date', 'address','published', 'max_appointments']
   inlines = [
     PVMeetingAppointmentInline
   ]
