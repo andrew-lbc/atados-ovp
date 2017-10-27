@@ -56,6 +56,7 @@ INSTALLED_APPS = get_core_apps() + [
     'rest_framework_jwt',
     'rest_framework_swagger',
     'debug_toolbar',
+    'email_log',
     'docs',
     'channels.pv'
 ]
