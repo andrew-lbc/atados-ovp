@@ -72,8 +72,8 @@ class BlockSignalTestCase(TestCase):
     self.assertEqual(response.status_code, 200)
 
     client.force_authenticate(user=user)
-    response = client.post(reverse("quiz-respond"), data={"answers": ["a", "b", "c", "d", "e"]}, format="json")
+    response = client.post(reverse("quiz-respond"), data={"answers": ["a", "c", "b", "a", "e"]}, format="json")
     self.assertEqual(response.status_code, 400)
 
-    response = client.post(reverse("quiz-respond"), data={"answers": ["a", "b", "c", "d", "e"]}, format="json", HTTP_X_OVP_CHANNEL="pv")
+    response = client.post(reverse("quiz-respond"), data={"answers": ["a", "c", "b", "a", "e"]}, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 200)

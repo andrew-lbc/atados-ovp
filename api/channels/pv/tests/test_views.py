@@ -108,19 +108,13 @@ class QuizViewSetTestCase(TestCase):
   def test_quiz_correct_answers(self):
     self.client.force_authenticate(self.user)
     data = {
-      "answers": ["a", "b", "c", "d", "e"],
+      "answers": ["a", "c", "b", "a", "e"],
     }
     self.assertEqual(self.user.pvuserinfo.can_apply, False)
     response = self.client.post(reverse("quiz-respond"), data=data, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 200)
     self.assertEqual({"detail": "You have passed the test."}, response.data)
     self.assertEqual(self.user.pvuserinfo.can_apply, True)
-
-    data = {
-      "answers": ["a", "b", "c", "z", "e"],
-    }
-    response = self.client.post(reverse("quiz-respond"), data=data, format="json", HTTP_X_OVP_CHANNEL="pv")
-    self.assertEqual(response.status_code, 200)
 
   def test_quiz_incorrect_answers(self):
     self.client.force_authenticate(self.user)
@@ -129,11 +123,11 @@ class QuizViewSetTestCase(TestCase):
     }
     response = self.client.post(reverse("quiz-respond"), data=data, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 400)
-    self.assertEqual({"detail": "Answer amount does not match questions amount."}, response.data)
+    self.assertEqual({"detail": "Answer amount does not match questions amount.", "title": "answers_incomplete"}, response.data)
 
     data = {
       "answers": ["a", "b", "c", "z", "z"],
     }
     response = self.client.post(reverse("quiz-respond"), data=data, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 400)
-    self.assertEqual({"detail": "You did not meet the correct answers threesold."}, response.data)
+    self.assertEqual({"detail": "You did not meet the correct answers threesold.", "title": "answers_not_correct"}, response.data)
