@@ -31,8 +31,11 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
       models.PVMeetingAppointment.objects.get(user=request.user, meeting=meeting, channel__slug=request.channel)
       return response.Response({"detail": "Can\'t appoint to this meeting because you are already appointed."}, status=status.HTTP_400_BAD_REQUEST)
     except models.PVMeetingAppointment.DoesNotExist:
-      models.PVMeetingAppointment.objects.create(user=request.user, meeting=meeting, object_channel=request.channel)
-      return response.Response({"detail": "Successfully appointed."}, status=status.HTTP_200_OK)
+      if meeting.appointments.count() >= meeting.max_appointments:
+        return response.Response({"detail": "This meeting has exceeded the maximum amount of appointments."}, status=status.HTTP_400_BAD_REQUEST)
+      else:
+        models.PVMeetingAppointment.objects.create(user=request.user, meeting=meeting, object_channel=request.channel)
+        return response.Response({"detail": "Successfully appointed."}, status=status.HTTP_200_OK)
 
   @decorators.detail_route(["POST"])
   def unappoint(self, request, *args, **kwargs):
@@ -46,7 +49,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
   @decorators.list_route(["GET"])
   def appointments(self, request, *args, **kwargs):
-    appointments = self.get_queryset().filter(appointments__user=request.user, channel__slug=request.channel)
+    appointments = self.get_queryset().filter(appointments__user=request.user, channel__slug=request.channel, published=True)
     serializer = self.get_serializer(appointments, many=True, context=self.get_serializer_context())
     return response.Response(serializer.data, status=status.HTTP_200_OK)
 

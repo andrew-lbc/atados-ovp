@@ -19,6 +19,7 @@ class MeetingViewSetTestCase(TestCase):
     models.PVMeeting.objects.create(date=timezone.now()+timedelta(hours=1), object_channel="pv")
 
     self.user = User.objects.create(email="test_user", password="testpw", object_channel="pv")
+    self.user2 = User.objects.create(email="test_user2", password="testpw", object_channel="pv")
 
   def test_list_meeting_dates(self):
     """ Test list route. Assert only upcoming meetings are shown. """
@@ -85,6 +86,18 @@ class MeetingViewSetTestCase(TestCase):
     response = self.client.get(reverse("meeting-appointments"), format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 200)
     self.assertEqual(len(response.data), 1)
+
+  def test_cant_appoint_if_limit(self):
+    meeting = models.PVMeeting.objects.create(date=timezone.now()+timedelta(hours=1), max_appointments=1, object_channel="pv")
+    pk = meeting.pk
+    self.client.force_authenticate(user=self.user)
+    response = self.client.post(reverse("meeting-appoint", [pk]), format="json", HTTP_X_OVP_CHANNEL="pv")
+    self.assertEqual(response.status_code, 200)
+
+    self.client.force_authenticate(user=self.user2)
+    response = self.client.post(reverse("meeting-appoint", [pk]), format="json", HTTP_X_OVP_CHANNEL="pv")
+    self.assertEqual(response.status_code, 400)
+    self.assertEqual(response.data, {"detail": "This meeting has exceeded the maximum amount of appointments."})
 
 @override_settings(DEFAULT_SEND_EMAIL="sync")
 class QuizViewSetTestCase(TestCase):
