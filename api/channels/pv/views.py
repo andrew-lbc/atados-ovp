@@ -5,6 +5,7 @@ from channels.pv import serializers
 
 from ovp.apps.channels.viewsets.decorators import ChannelViewSet
 from ovp.apps.core import pagination
+from ovp.apps.users.models import User
 
 from rest_framework import decorators
 from rest_framework import mixins
@@ -109,3 +110,15 @@ class QuizViewSet(viewsets.GenericViewSet):
     request.user.pvuserinfo.save()
 
     return response.Response({"detail": "You have passed the test."}, status=status.HTTP_200_OK)
+
+
+@decorators.api_view(["GET"])
+def user_can_apply(request, *args, **kwargs):
+  if request.user.pk is None:
+    return response.Response({"detail": "Authentication credentials were not provided."}, status=400)
+
+  user = User.objects.get(pk=request.user.pk)
+  if user.pvuserinfo.can_apply:
+    return response.Response({"status": True}, status=200)
+
+  return response.Response({"status": False, "detail": "Current user cannot apply yet."}, status=400)
