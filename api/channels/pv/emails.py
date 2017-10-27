@@ -19,6 +19,12 @@ class AppointmentMail(BaseMail):
     """
     return self.sendEmail('appointmentNotification', 'Appointment notification', context)
 
+  def sendRequestReapply(self, context={}):
+    """
+    Sent if user does not show up to a meeting
+    """
+    return self.sendEmail('appointmentRequestReapply', 'Appointment request reapply', context)
+
 class UserInfoMail(BaseMail):
   """
   This class is responsible for firing emails about approvals

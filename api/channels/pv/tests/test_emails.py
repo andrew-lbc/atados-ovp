@@ -29,6 +29,18 @@ class TestEmailTriggers(TestCase):
     self.assertTrue(len(mail.outbox) == 1)
     self.assertTrue(mail.outbox[0].subject == get_email_subject("pv", "appointmentCreated", "Appointment created"))
 
+  def test_appointment_did_not_show_up_trigger_email(self):
+    """Assert that email is triggered when user does not show up to appointment  """
+    self.test_appointment_trigger_email()
+    mail.outbox = []
+
+    appointment = PVMeetingAppointment.objects.last()
+    appointment.user_did_not_show_up = True
+    appointment.save()
+
+    self.assertTrue(len(mail.outbox) == 1)
+    self.assertTrue(mail.outbox[0].subject == get_email_subject("pv", "appointmentRequestReapply", "Participe de uma reunião"))
+
   def test_userinfo_can_apply_triggers_email(self):
     """Assert that email is triggered when PVUserInfo.can_apply == True """
     mail.outbox = []

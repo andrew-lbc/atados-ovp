@@ -15,7 +15,7 @@ class PVUserInfo(ChannelRelationship):
 
   def save(self, *args, **kwargs):
     send_email = False
-    if self.can_apply != self.__original_can_apply:
+    if self.can_apply and self.can_apply != self.__original_can_apply:
       send_email = True
 
     super(PVUserInfo, self).save(*args, **kwargs)
@@ -33,6 +33,11 @@ class PVMeeting(ChannelRelationship):
 class PVMeetingAppointment(ChannelRelationship):
   meeting = models.ForeignKey("PVMeeting", related_name="appointments")
   user = models.ForeignKey("users.User")
+  user_did_not_show_up = models.BooleanField(default=False)
+
+  def __init__(self, *args, **kwargs):
+    super(PVMeetingAppointment, self).__init__(*args, **kwargs)
+    self.__original_user_did_not_show_up = self.user_did_not_show_up
 
   def can_apply(self):
     return self.user.pvuserinfo.can_apply
@@ -46,7 +51,14 @@ class PVMeetingAppointment(ChannelRelationship):
     if not self.pk:
       creating = True
 
+    user_did_not_show_up = False
+    if self.user_did_not_show_up and self.user_did_not_show_up != self.__original_user_did_not_show_up:
+      user_did_not_show_up = True
+
     super(PVMeetingAppointment, self).save(*args, **kwargs)
 
     if creating:
       self.mailing().sendCreated({"appointment": self})
+
+    if user_did_not_show_up:
+      self.mailing().sendRequestReapply({"appointment": self})
