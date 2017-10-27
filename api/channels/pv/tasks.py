@@ -8,6 +8,6 @@ from channels.pv.models import PVMeetingAppointment
 def send_notification_one_day_before_meeting(appointment_pk):
   try:
     appointment = PVMeetingAppointment.objects.get(pk=appointment_pk)
-    appointment.mailing().sendNotification()
+    appointment.mailing().sendNotification({"appointment": appointment})
   except PVMeetingAppointment.DoesNotExist:
     pass

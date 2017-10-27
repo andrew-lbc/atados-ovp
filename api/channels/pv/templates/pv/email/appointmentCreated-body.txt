@@ -2,4 +2,11 @@
 
 {% block content %}
   Appointment created.
+
+{% if appointment and appointment.address %}
+  Endereço: {{ appointment.address.address_line }}
+  {% if appointment.address.typed_address2 %}
+  Complemento: {{ appointment.address.typed_address2 }}
+  {% endif %}
+{% endif %}
 {% endblock %}

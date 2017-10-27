@@ -49,4 +49,4 @@ class PVMeetingAppointment(ChannelRelationship):
     super(PVMeetingAppointment, self).save(*args, **kwargs)
 
     if creating:
-      self.mailing().sendCreated()
+      self.mailing().sendCreated({"appointment": self})
