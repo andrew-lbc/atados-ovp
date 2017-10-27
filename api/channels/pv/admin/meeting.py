@@ -45,4 +45,7 @@ class PVMeetingAdmin(ChannelModelAdmin):
       return {'change': False, 'add': False, 'delete': False}
     return super(PVMeetingAdmin, self).get_model_perms(request)
 
+  def has_delete_permission(self, request, obj=None):
+    return False
+
 admin_site.register(PVMeeting, PVMeetingAdmin)
