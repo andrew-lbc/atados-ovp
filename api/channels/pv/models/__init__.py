@@ -34,6 +34,10 @@ class PVMeetingAppointment(ChannelRelationship):
   meeting = models.ForeignKey("PVMeeting", related_name="appointments")
   user = models.ForeignKey("users.User")
 
+  def can_apply(self):
+    return self.user.pvuserinfo.can_apply
+  can_apply.boolean = True
+
   def mailing(self, async_mail=None):
     return emails.AppointmentMail(self, async_mail)
 
