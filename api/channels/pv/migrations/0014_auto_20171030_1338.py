@@ -10,7 +10,7 @@ def foward_func(apps, schema_editor):
     group = Group.objects.create(name='PV Meeting Editor')
 
     Permission = apps.get_model('auth', 'Permission')
-    permission_list = ['add_pvmeeting', 'change_pvmeeting', 'delete_pvmeeting', 'add_pvmeetingappointment', 'change_pvmeetingappointment', 'delete_pvmeetingappointment', 'add_pvmeetingdate', 'change_pvmeetingdate', 'delete_pvmeetingdate', 'add_pvuserinfo', 'change_pvuserinfo', 'delete_pvuserinfo']
+    permission_list = ['add_pvmeeting', 'change_pvmeeting', 'delete_pvmeeting', 'add_pvmeetingappointment', 'change_pvmeetingappointment', 'delete_pvmeetingappointment', 'add_pvuserinfo', 'change_pvuserinfo', 'delete_pvuserinfo']
     for permission in permission_list:
       permission_object = Permission.objects.get(codename=permission)
       group.permissions.add(permission_object)
