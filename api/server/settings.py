@@ -58,7 +58,8 @@ INSTALLED_APPS = get_core_apps() + [
     'debug_toolbar',
     'email_log',
     'docs',
-    'channels.pv'
+    'channels.pv',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,17 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     )
+}
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['Link', 'Unlink'],
+        ]
+    }
 }
 
 # User models
