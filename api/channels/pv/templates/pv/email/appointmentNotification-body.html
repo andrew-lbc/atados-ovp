@@ -1,5 +1,18 @@
 {% extends extend.html %}
 
 {% block content %}
-  Appointment notification.
+  <p>
+    Olá! Obrigado por dar esse passo a mais e agendar a sua Reunião de Conscientização (presencial) aqui na Parceiros Voluntários! Confira data, horário e endereço abaixo:
+  </p>
+  <p>
+    <b>Data:</b> {{ appointment.date }}
+  </p>
+  {% if appointment and appointment.address %}
+    <p><b>Endereço:</b> {{ appointment.address.address_line }}</p>
+    {% if appointment.address.typed_address2 %}
+    <p><b>Complemento:</b> {{ appointment.address.typed_address2 }}</p>
+    {% endif %}
+  <p>Boa reunião :)</p>
+  <p>Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)</p>
+  <p><b>Equipe Parceiros Voluntários</b></p>
 {% endblock %}
