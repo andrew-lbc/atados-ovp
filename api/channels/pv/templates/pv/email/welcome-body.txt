@@ -1,5 +1,15 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Hello, welcome to the system.
+  Seja bem vindo à plataforma de voluntariado da Parceiros Voluntários! \o/
+  
+  Para começar é bem fácil: <b>escolha uma das vagas de voluntariado abertas</b> no site. Veja todas aqui (http://beta.parceirosvoluntarios.atados.com.br/vagas).
+
+  Pedimos também que complete o seu perfil (#) com dados detalhados para podermos conhecê-lo melhor e sugerirmos vagas que se encaixam no seu perfil.
+  
+  Lembre-se: o fortalecimento dessa rede e a mobilização de voluntários melhoram as organizações sociais e transformam pessoas e comunidades.
+  
+  Qualquer dúvida, crítica ou sugestão, entre em contato com a gente. ;)
+  
+  Equipe Parceiros Voluntários
 {% endblock %}

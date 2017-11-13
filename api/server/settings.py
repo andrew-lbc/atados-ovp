@@ -52,6 +52,7 @@ INSTALLED_APPS = get_core_apps() + [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'django_inlinecss',
     'rest_framework',
     'rest_framework_jwt',
     'rest_framework_swagger',
@@ -158,7 +159,6 @@ CKEDITOR_CONFIGS = {
 
 AUTH_USER_MODEL = 'users.User'
 SILENCED_SYSTEM_CHECKS = ["auth.E003", "auth.W004"]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

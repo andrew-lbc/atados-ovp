@@ -1,12 +1,15 @@
 {% extends extend.html %}
 
 {% block content %}
-  Appointment created.
-
+  <h1>Reunião presencial criada!</h1>
+  <p>
+  	Olá! Foi criada uma nova reunião presencial no Admin da plataforma de voluntariado da Parceiros Voluntários:
+  </p>
+  <p><b>Data:</b>{{ appointment.date }}</p>
   {% if appointment and appointment.address %}
-    Endereço: {{ appointment.address.address_line }}<br>
+    <p><b>Endereço:</b> {{ appointment.address.address_line }}</p>
       {% if appointment.address.typed_address2 %}
-        Complemento: {{ appointment.address.typed_address2 }}
+        <p><b>Complemento:</b> {{ appointment.address.typed_address2 }}</p>
       {% endif %}
   {% endif %}
 {% endblock %}

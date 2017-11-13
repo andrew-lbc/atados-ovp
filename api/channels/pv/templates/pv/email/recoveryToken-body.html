@@ -1,8 +1,16 @@
-{% extends extend.html %}
+{% extends "email/base.html" %}
 
 {% block content %}
-  Hello, you're receiving this email because you requested password recovery.<br>
-  To choose a new password, go to <a href="{{token.token}}">{{token.token}}</a>. This link is valid for 24 hours.<br>
-  <br>
-  If you haven't requested password recovery, please ignore this email.
+  <h1>Recuperação de senha</h1>
+  <p>
+    Olá! Você clicou em recuperar senha na plataforma de voluntariado da Parceiros Voluntários. Clique abaixo para redefinir sua senha:
+  </p>
+  <p>
+    <a href="{{ CLIENT_URL }}/recuperar-senha?token={{ token.token }}" class="btn btn-pink btn-large">
+      Recuperar senha
+    </a>
+  </p>
+  <p>Caso não tenha feito esta solicitação, ignore este e-mail.</p>
+  <p>Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)</p>
+  <p><b>Equipe Parceiros Voluntários</b></p>
 {% endblock %}

@@ -1,5 +1,15 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Your organization was published.
+  Olá, é com grande felicidade que comunicamos: sua ONG foi aprovada e já está online no site!
+  
+  O próximo passo é {{ CLIENT_URL }}/painel/ong/{{ organization.slug }}/criar-vaga CRIAR UMA VAGA para um evento, uma função ou qualquer atividade que sua ONG esteja precisando – e que um ou mais voluntários podem ajudar.
+  
+  Essa vaga vai ser publicada na plataforma da Parceiros Voluntários, onde nossos milhares de voluntários poderão acessar e se inscrever. Vamos lá?
+  
+  É só clicar aqui (link) e seguir as orientações.  
+  
+  Qualquer dúvida, fale com a gente enviando um e-mail para (email).
+  
+  Equipe Parceiros Voluntários
 {% endblock content %}
