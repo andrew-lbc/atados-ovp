@@ -1,0 +1,210 @@
+/* = = = = = [GLOBAL] = = = = = */
+* {
+  margin:0;
+  padding:0;
+}
+* { font-family: "Helvetica", Helvetica, Arial, sans-serif; }
+
+img {
+  max-width: 100%;
+}
+
+body {
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:none;
+  width: 100% !important;
+  height: 100%;
+  background: #E9EAEA;
+}
+
+.left  {  margin-right: auto;  }
+.right {  margin-left: auto;  }
+
+.no-border-spacing {
+  border-spacing: 0px;
+}
+
+.email-wrapper {
+  padding-top: 48px;
+  background: #E9EAEA;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+table.content {
+  border-spacing: 0px;
+}
+
+.separator {
+  height: 100px;
+  padding: 0px 3px;
+}
+.separator > span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  border: none;
+  margin: 0 auto;
+  background: #B9B9B9;
+}
+
+.v-margin-22 {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.full-width {  width: 100%;  }
+
+.head-wrap {
+  background: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.header table td.margin {
+  width: 450px;
+}
+.logo-wrapper {
+  top: -2px;
+  right: 50px;
+  position: relative;
+}
+
+.signature-wrapper {
+  width: 600px;
+  margin: 32px auto;
+  padding: 3px 32px;
+}
+.footer-content p {
+  color: #AFAFAF;
+  font-size: 12px;
+  max-width: 186px;
+  margin-top: 6px;
+  line-height: 19.2px;
+}
+.footer-content p.right {
+  font-size: 14px;
+  line-height: 22px;
+}
+.footer-content td {
+  vertical-align: top;
+}
+.footer-content h3 {
+  color: #AFAFAF;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.body-wrap {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.body-content {
+  color: #666666;
+  padding: 32px 60px;
+}
+.body-content > p {
+  margin: 12px 0 18px 0;
+  line-height: 22px;
+  font-size: 14px;
+}
+
+h1 {
+  color: #F17922;
+  font-size: 32px;
+  margin: 12px 0px 22px;
+}
+h2 {
+  color: #FC8A1B;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+h2 + p {
+  margin-top: 0px !important;
+}
+
+a {
+  color: inherit;
+}
+
+a.button {
+  color: white;
+  padding: 16px 40px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #FC8A1B;
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+}
+a.button:hover {
+  opacity: 0.9;
+}
+a.button-confirm {
+  background: #4BD385;
+}
+a.button-cancel {
+  background: #EB2961;
+}
+
+.text-right  {  text-align: right;  }
+.text-left   {  text-align: left;   }
+.text-center {  text-align: center; }
+
+.bold {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+/* = = = = = [COMPONENTS] = = = = = */
+.gray-box {
+  padding: 22px 32px;
+  color: #666;
+  margin: 0 auto 28px auto;
+  background: #F9F9F9;
+  width: 320px;
+}
+.gray-box > p {
+  font-size: 14px;
+  line-height: 22px;
+}
+.gray-box.big {
+  width: 386px;
+}
+
+ul.checklist {
+  list-style-type: none;
+}
+ul.checklist > li {
+  padding: 5px 0 5px 28px;
+  position: relative;
+}
+ul.checklist > li > p {
+  font-size: 14px;
+}
+.mark,
+.mark-1, .mark-2, .mark-3, .mark-4, .mark-5, .mark-6 {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("https://s3.amazonaws.com/atados-us/images/check.png") no-repeat top left;
+}
+
+.social > .icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin: 0 2px 0 10px;
+}
+.social > .icon:hover {
+  opacity: .9;
+}
+.social > .icon > img {
+  width: 100%;
+}
+
+.text-orange {  color: #FE8A00;  }
