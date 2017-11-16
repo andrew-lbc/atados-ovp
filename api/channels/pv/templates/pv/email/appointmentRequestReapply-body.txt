@@ -1,5 +1,9 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Appointment notification.
+  Olá! Você não compareceu na reunião presencial da Parceiros Voluntários. Que pena!
+  Você gostaria de remarcar a reunião? Clique aqui ().
+  Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)
+  
+  Equipe Parceiros Voluntários
 {% endblock %}
