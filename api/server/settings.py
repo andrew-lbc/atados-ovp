@@ -39,7 +39,7 @@ SECRET_KEY = '0o55a_%0s2t6)+j9+7wj5e^-z=t0ql#7-+ncrtnn8q(kl+em6v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".localhost"]
+ALLOWED_HOSTS = [".localhost", "beta.atados.com.br"]
 
 
 # Application definition
