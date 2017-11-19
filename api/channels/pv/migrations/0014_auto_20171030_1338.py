@@ -4,6 +4,13 @@ from __future__ import unicode_literals
 
 from django.db import migrations
 
+from django.contrib.auth.management import create_permissions
+
+def migrate_permissions(apps, schema_editor):
+  for app_config in apps.get_app_configs():
+    app_config.models_module = True
+    create_permissions(app_config, apps=apps, verbosity=0)
+    app_config.models_module = None
 
 def foward_func(apps, schema_editor):
     Group = apps.get_model('auth', 'Group')
@@ -14,6 +21,7 @@ def foward_func(apps, schema_editor):
     for permission in permission_list:
       permission_object = Permission.objects.get(codename=permission)
       group.permissions.add(permission_object)
+      pass
     return True
 
 def rewind_func(apps, schema_editor):
@@ -28,5 +36,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(migrate_permissions, migrate_permissions),
         migrations.RunPython(foward_func, rewind_func)
     ]
