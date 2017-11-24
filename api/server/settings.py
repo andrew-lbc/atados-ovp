@@ -26,7 +26,6 @@ if env in ['production', 'homolog']:
 # Submodules
 submodule.add(submodule.locate('django-*'))
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,7 +59,10 @@ INSTALLED_APPS = get_core_apps() + [
     'email_log',
     'docs',
     'channels.pv',
-    'ckeditor'
+    'ckeditor',
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +92,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -135,7 +139,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     'PAGINATE_BY_PARAM': 'page_size',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'ovp.apps.users.auth.jwt_authenticator.ChannelJSONWebTokenAuthentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'django.contrib.auth.backends.ModelBackend',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
@@ -209,13 +214,59 @@ HAYSTACK_CONNECTIONS = {
 
 # Authentication backends
 
-AUTHENTICATION_BACKENDS = ["ovp.apps.users.auth.backends.ChannelBasedAuthentication"]
+AUTHENTICATION_BACKENDS = [
+  # Facebook OAuth2
+  'ovp.apps.users.auth.oauth2.backends.facebook.FacebookOAuth2',
+  'ovp.apps.users.auth.oauth2.backends.google.GoogleOAuth2',
+
+  # django-rest-framework-social-oauth2
+  'rest_framework_social_oauth2.backends.DjangoOAuth2',
+
+  'ovp.apps.users.auth.backends.ChannelBasedAuthentication'
+]
 
 # JWT Auth
 
 JWT_AUTH = {
   'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
 }
+
+# Facebook configuration
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('FACEBOOK_ID', None)
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET', None)
+SOCIAL_AUTH_FACEBOOK_USER_FIELDS = ['email', 'response']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'name', 'picture', 'verified']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'fields': 'id, name, picture, verified, email'
+}
+
+# Google
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('GOOGLE_ID', None)
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('GOOGLE_SECRET', None)
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+  'https://www.googleapis.com/auth/userinfo.email',
+  'https://www.googleapis.com/auth/userinfo.profile'
+]
+
+# Social Auth
+
+SOCIAL_AUTH_STRATEGY = 'ovp.apps.users.auth.oauth2.strategy.OVPDjangoStrategy'
+SOCIAL_AUTH_PIPELINE = [
+  'social_core.pipeline.social_auth.social_details',
+  'ovp.apps.users.auth.oauth2.pipeline.social_uid',
+  'social_core.pipeline.social_auth.auth_allowed',
+  'social_core.pipeline.social_auth.social_user',
+  'social_core.pipeline.user.get_username',
+  'social_core.pipeline.user.create_user',
+  'social_core.pipeline.social_auth.associate_user',
+  'social_core.pipeline.social_auth.load_extra_data',
+  'social_core.pipeline.user.user_details'
+]
+SOCIAL_AUTH_PROTECTED_FIELDS = ('username', 'id', 'pk', 'email', 'channel')
+
+OAUTH2_VALIDATOR_CLASS = 'ovp.apps.users.auth.oauth2.validators.OAuth2Validator'
 
 # Cors headers
 
