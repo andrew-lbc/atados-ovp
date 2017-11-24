@@ -139,9 +139,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     'PAGINATE_BY_PARAM': 'page_size',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'ovp.apps.users.auth.jwt_authenticator.ChannelJSONWebTokenAuthentication',
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-        # 'rest_framework_social_oauth2.authentication.SocialAuthentication',
         'django.contrib.auth.backends.ModelBackend',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
@@ -235,10 +233,9 @@ JWT_AUTH = {
 
 # Facebook configuration
 
-SOCIAL_AUTH_FACEBOOK_KEY = '338055253324813'
-SOCIAL_AUTH_FACEBOOK_SECRET = '1003ba8bcb9d5848cef65da7141dd368'
-# Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
-SOCIAL_AUTH_FACEBOOK_USER_FIELDS = ['email', 'response'] #'name', 'picture', 'verified', 'public_profile']
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('FACEBOOK_ID', None)
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET', None)
+SOCIAL_AUTH_FACEBOOK_USER_FIELDS = ['email', 'response']
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'name', 'picture', 'verified']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'fields': 'id, name, picture, verified, email'
@@ -246,17 +243,16 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 
 # Google
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '374097964996-ffk89bgbig76g1ud7choqpn39lu630ah.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '7uz2SsyaK_cgEp6Rz-tO_DJD'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('GOOGLE_ID', None)
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('GOOGLE_SECRET', None)
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
   'https://www.googleapis.com/auth/userinfo.email',
   'https://www.googleapis.com/auth/userinfo.profile'
 ]
 
-# Strategy
+# Social Auth
 
 SOCIAL_AUTH_STRATEGY = 'ovp.apps.users.auth.oauth2.strategy.OVPDjangoStrategy'
-# SOCIAL_AUTH_STORAGE = 'ovp.apps.users.auth.oauth2.storage.OVPDjangoStorage'
 SOCIAL_AUTH_PIPELINE = [
   'social_core.pipeline.social_auth.social_details',
   'ovp.apps.users.auth.oauth2.pipeline.social_uid',
