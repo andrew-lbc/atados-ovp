@@ -11,7 +11,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br']
 
 # Cors
-CORS_ORIGIN_WHITELIST = ['beta.atados.com.br', 'beta.parceirosvoluntarios.atados.com.br']
+CORS_ORIGIN_WHITELIST = ['localhost', 'beta.atados.com.br', 'beta.parceirosvoluntarios.atados.com.br']
 
 # Secret key
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
