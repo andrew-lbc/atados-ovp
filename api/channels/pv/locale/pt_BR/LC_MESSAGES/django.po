@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-29 14:52-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: models/__init__.py:7 models/__init__.py:46
+msgid "user"
+msgstr "usuário"
+
+#: models/__init__.py:8
+msgid "Can Apply"
+msgstr "Pode se inscrever em ações"
+
+#: models/__init__.py:8
+msgid "Can apply"
+msgstr "Pode se inscrever em ações"
+
+#: models/__init__.py:30
+msgid "PV User Info"
+msgstr "Informações de usuário"
+
+#: models/__init__.py:31
+msgid "PV Users Info"
+msgstr "Informações de usuários"
+
+#: models/__init__.py:34
+msgid "Date"
+msgstr "Data"
+
+#: models/__init__.py:35
+msgid "Published"
+msgstr "Publicado"
+
+#: models/__init__.py:36
+msgid "address"
+msgstr "endereço"
+
+#: models/__init__.py:37
+msgid "Maximum appointments"
+msgstr "Máximo de inscrições"
+
+#: models/__init__.py:41
+msgid "PV Meeting"
+msgstr "Reunião presencial"
+
+#: models/__init__.py:42
+msgid "PV Meetings"
+msgstr "Reuniões presenciais"
+
+#: models/__init__.py:45
+msgid "meeting"
+msgstr "reunião presencial"
+
+#: models/__init__.py:47
+msgid "User did not show up"
+msgstr "Usuário não apareceu"
+
+#: models/__init__.py:51
+msgid "PV Meeting Appointment"
+msgstr "Inscrição em reunião"
+
+#: models/__init__.py:52
+msgid "PV Meetings Appointments"
+msgstr "Inscrições em reuniões"
+
+#: jet/models.py:16 jet/templates/admin/base.html:294
+msgid "bookmarks"
+msgstr "marcadores"
+
+#: jet/templates/admin/base.html:133
+msgid "back"
+msgstr "voltar"
+
+#: jet/templates/admin/base.html:60
+msgid "View site"
+msgstr "Ver site"
+
+#: jet/templates/admin/base.html:273 jet/templates/admin/base.html:292
+msgid "Add bookmark"
+msgstr "Adicionar marcador"
+
+#: jet/templates/admin/base.html:286
+msgid "Delete bookmark"
+msgstr "Remover marcador"
+
+#: jet/templates/admin/base.html:287
+msgid "Are you sure want to delete this bookmark?"
+msgstr "Você tem certeza que deseja remover esse marcador?"
+
+#: jet/templates/admin/base.html:339
+msgid "Application page"
+msgstr "Página da aplicação"
+
+#: jet/templates/admin/base.html:276
+msgid "Title"
+msgstr "Título"
+
+#: jet/templates/admin/base.html:278
+msgid "URL"
+msgstr "URL"
+
+#: jet/templates/admin/base.html:217
+msgid "Applications"
+msgstr "Aplicações"
+
+#: jet/templates/admin/base.html:243
+msgid "Hide applications"
+msgstr "Esconder aplicações"
+
+#: jet/templates/admin/base.html:244
+msgid "Show hidden"
+msgstr "Mostrar escondidos"
+
+#: jet/templates/admin/base.html:363
+msgid "current theme"
+msgstr "tema atual"
+
+#: jet/templates/...
+msgid "Quick links"
+msgstr "Links rápidos"
+
+#: jet/templates/...
+msgid "Recent Actions"
+msgstr "Ações recentes"

@@ -1,10 +1,11 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from channels.pv import emails
 from ovp.apps.channels.models.abstract import ChannelRelationship
 
 class PVUserInfo(ChannelRelationship):
-  user = models.OneToOneField("users.User")
-  can_apply = models.BooleanField(default=False)
+  user = models.OneToOneField("users.User", verbose_name=_("user"))
+  can_apply = models.BooleanField(_("Can Apply"), default=False)
 
   def __init__(self, *args, **kwargs):
     super(PVUserInfo, self).__init__(*args, **kwargs)
@@ -24,16 +25,31 @@ class PVUserInfo(ChannelRelationship):
     if send_email:
       self.mailing().sendApproved()
 
+  class Meta:
+    app_label = "pv"
+    verbose_name = _("PV User Info")
+    verbose_name_plural = _("PV Users Info")
+
 class PVMeeting(ChannelRelationship):
-  date = models.DateTimeField()
-  published = models.BooleanField(default=True)
-  address = models.OneToOneField('core.GoogleAddress', blank=True, null=True, verbose_name='address', db_constraint=False)
-  max_appointments = models.IntegerField(default=40)
+  date = models.DateTimeField(_("Date"))
+  published = models.BooleanField(_("Published"), default=True)
+  address = models.OneToOneField("core.GoogleAddress", blank=True, null=True, verbose_name=_("address"), db_constraint=False)
+  max_appointments = models.IntegerField(_("Maximum appointments"), default=40)
+
+  class Meta:
+    app_label = "pv"
+    verbose_name = _("PV Meeting")
+    verbose_name_plural = _("PV Meetings")
 
 class PVMeetingAppointment(ChannelRelationship):
-  meeting = models.ForeignKey("PVMeeting", related_name="appointments")
-  user = models.ForeignKey("users.User")
-  user_did_not_show_up = models.BooleanField(default=False)
+  meeting = models.ForeignKey("PVMeeting", related_name="appointments", verbose_name=_("meeting"))
+  user = models.ForeignKey("users.User", verbose_name=_("user"))
+  user_did_not_show_up = models.BooleanField(_("User did not show up"), default=False)
+
+  class Meta:
+    app_label = "pv"
+    verbose_name = _("PV Meeting Appointment")
+    verbose_name_plural = _("PV Meetings Appointments")
 
   def __init__(self, *args, **kwargs):
     super(PVMeetingAppointment, self).__init__(*args, **kwargs)
@@ -42,6 +58,7 @@ class PVMeetingAppointment(ChannelRelationship):
   def can_apply(self):
     return self.user.pvuserinfo.can_apply
   can_apply.boolean = True
+  can_apply.short_description = _("Can apply")
 
   def mailing(self, async_mail=None):
     return emails.AppointmentMail(self, async_mail)
