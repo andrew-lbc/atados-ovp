@@ -269,6 +269,17 @@ SOCIAL_AUTH_PROTECTED_FIELDS = ('username', 'id', 'pk', 'email', 'channel')
 
 OAUTH2_VALIDATOR_CLASS = 'ovp.apps.users.auth.oauth2.validators.OAuth2Validator'
 
+# Password Hashers
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
+]
+
 # Cors headers
 
 from corsheaders.defaults import default_headers
