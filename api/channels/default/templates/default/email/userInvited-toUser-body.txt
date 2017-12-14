@@ -1,0 +1,5 @@
+{% extends extend.txt %}
+
+{% block content %}
+  You are invited to organization {{invite.organization.name}}. Click here to join.
+{% endblock content %}

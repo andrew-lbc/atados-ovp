@@ -1,0 +1,20 @@
+{% extends extend.html %}
+
+{% block content %}
+  <h1>Olá, é com grande felicidade que comunicamos: sua ONG foi aprovada e já está online no site!</h1>
+  <p>
+  	O próximo passo é <a href="{{ CLIENT_URL }}/painel/ong/{{ organization.slug }}/criar-vaga"><b>CRIAR UMA VAGA</b></a> para um evento, uma função ou qualquer atividade que sua ONG esteja precisando – e que um ou mais voluntários podem ajudar.
+  </p>
+  <p>
+  	Essa vaga vai ser publicada na plataforma do Atados, onde nossos milhares de voluntários poderão acessar e se inscrever. Vamos lá?
+  </p>
+  <p>
+  É só <a href="{{ CLIENT_URL }}/painel/ong/{{ organization.slug }}/criar-vaga">clicar aqui</a> e seguir as orientações.
+  </p>
+  <p>
+  	Qualquer dúvida, fale com a gente enviando um e-mail para (email).
+  </p>
+  <p>
+  	<b>Equipe Atados</b>
+  </p>
+{% endblock %}

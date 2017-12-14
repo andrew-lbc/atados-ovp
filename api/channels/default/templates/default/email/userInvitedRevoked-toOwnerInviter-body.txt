@@ -1,0 +1,5 @@
+{% extends extend.txt %}
+
+{% block content %}
+  The invitation you sent to user {{invite.invited.name}} ({{invite.invited.email}}) to join organization {{invite.organization.name}} has been revoked.
+{% endblock content %}

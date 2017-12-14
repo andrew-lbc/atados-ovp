@@ -1,0 +1,16 @@
+{% extends "email/base.html" %}
+
+{% block content %}
+  <h1>Recuperação de senha</h1>
+  <p>
+    Olá! Você clicou em recuperar senha na plataforma de voluntariado do Atados. Clique abaixo para redefinir sua senha:
+  </p>
+  <p>
+    <a href="{{ CLIENT_URL }}/recuperar-senha?token={{ token.token }}" class="btn btn-pink btn-large">
+      Recuperar senha
+    </a>
+  </p>
+  <p>Caso não tenha feito esta solicitação, ignore este e-mail.</p>
+  <p>Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)</p>
+  <p><b>Equipe Atados</b></p>
+{% endblock %}

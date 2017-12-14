@@ -1,0 +1,9 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Olá, sua vaga {{ project.name }} foi aprovada e já está online no site!
+  Nossos milhares de voluntários já têm acesso e podem se candidatar.
+  Qualquer dúvida, não deixe de falar com a gente enviando um e-mail para contato@atados.com.br.
+
+  Equipe Atados
+{% endblock content %}

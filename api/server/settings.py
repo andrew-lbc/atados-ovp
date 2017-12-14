@@ -59,6 +59,7 @@ INSTALLED_APPS = get_core_apps() + [
     'email_log',
     'docs',
     'channels.pv',
+    'channels.default',
     'ckeditor',
     'oauth2_provider',
     'social_django',

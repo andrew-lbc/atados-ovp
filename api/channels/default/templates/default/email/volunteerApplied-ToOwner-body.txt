@@ -1,0 +1,16 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Temos aqui uma boa notícia!
+  Um novo candidato quer participar da sua vaga {{apply.project.name}}
+
+  Agora é com você: entre em contato com o candidato, combine os próximos passos e façam juntos do mundo um lugar melhor.
+  
+  Veja abaixo a mensagem que o candidato enviou quando se candidatou:
+
+  Nome:{{ apply.user.name }}
+  Email:{{ apply.user.email }}
+  Telefone:{{ apply.user.phone }}
+  Mensagem: {{ apply.message }}
+  Equipe Atados
+{% endblock content %}

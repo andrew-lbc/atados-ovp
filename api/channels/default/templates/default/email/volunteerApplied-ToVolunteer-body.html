@@ -1,0 +1,31 @@
+{% extends extend.html %}
+
+{% block content %}
+  <h1>Parabéns! :)</h1>
+  <p>Estamos todos muitos felizes por você ter se candidatado à vaga <b>{{apply.project.name}}</b>.</p>
+  <p>
+    É muito bom saber que existem pessoas que se importam genuinamente com as outras e querem contribuir para uma sociedade melhor, mais colaborativa e mais ética. :)
+  </p>
+  <p>
+    Agora é só aguardar que o responsável da ONG irá entrar em contato por e-mail ou telefone para passar as próximas instruções. Depois disso é mão na massa e sorriso no rosto.
+  </p>
+  <p>
+    Se a ONG não entrar em contato com você em até 7 dias, fale com a gente pelo e-mail contato@leonardoarroyo.com. 
+  </p>
+  <p>
+    Por último, um recadinho. É sempre bom lembrar da importância do comprometimento e da alegria que o voluntário deve ter para exercer suas atividades, afinal, voluntariado é coisa séria. Contamos com você.
+  </p>
+  <p>
+    Dados do responsável pela vaga:
+  </p>
+  <p>
+    <b>Nome:</b>{{apply.project.owner.name}}
+  </p>
+  <p>
+    <b>Email:</b>{{apply.project.owner.email}}
+  </p>
+  <p>
+    <b>Telefone:</b>{{apply.project.owner.phone}}
+  </p>
+  <p><b>Equipe Atados</b></p>
+{% endblock %}
