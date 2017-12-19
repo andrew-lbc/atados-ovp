@@ -11,7 +11,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br', 'v2.api.atados.com.br', '.admin.atados.com.br']
 
 # Cors
-CORS_ORIGIN_WHITELIST = ['localhost:8080', 'integrinodejs.mybluemix.net', 'beta.atados.com.br', 'beta.parceirosvoluntarios.atados.com.br', 'atados.com.br']
+CORS_ORIGIN_WHITELIST = ['localhost:8080', 'integrinodejs.mybluemix.net', 'beta.atados.com.br', 'beta.parceirosvoluntarios.atados.com.br', 'atados.com.br', 'integri.org']
 
 # Secret key
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
