@@ -59,7 +59,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
   """
   def get_queryset(self):
     if self.action in ["list", "appoint", "unappoint"]:
-      return self.queryset.filter(date__gte=timezone.now())
+      return self.queryset.filter(date__gte=timezone.now(), published=True)
     if self.action == "appointments":
       return self.queryset
 
