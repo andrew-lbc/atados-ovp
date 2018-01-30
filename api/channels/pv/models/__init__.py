@@ -33,7 +33,7 @@ class PVUserInfo(ChannelRelationship):
 class PVMeeting(ChannelRelationship):
   date = models.DateTimeField(_("Date"))
   published = models.BooleanField(_("Published"), default=True)
-  address = models.OneToOneField("core.GoogleAddress", blank=True, null=True, verbose_name=_("address"), db_constraint=False)
+  address = models.ForeignKey("core.GoogleAddress", blank=True, null=True, verbose_name=_("address"), db_constraint=False)
   max_appointments = models.IntegerField(_("Maximum appointments"), default=40)
 
   class Meta:
