@@ -31,7 +31,8 @@ class PVMeetingAppointmentForm(forms.ModelForm):
 class PVMeetingAppointmentInline(TabularInline):
   model = PVMeetingAppointment
   form = PVMeetingAppointmentForm
-  fields = ['user', 'can_apply', 'user_did_not_show_up']
+  fields = ['user', 'can_apply', 'special_conditions', 'user_did_not_show_up']
+  readonly_fields = ['special_conditions']
 
 class PVMeetingAdmin(ChannelModelAdmin):
   list_display = ['id', 'date']

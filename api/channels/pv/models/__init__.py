@@ -44,6 +44,7 @@ class PVMeeting(ChannelRelationship):
 class PVMeetingAppointment(ChannelRelationship):
   meeting = models.ForeignKey("PVMeeting", related_name="appointments", verbose_name=_("meeting"))
   user = models.ForeignKey("users.User", verbose_name=_("user"))
+  special_conditions = models.CharField(_('Special Conditions'), max_length=150, blank=True, null=True)
   user_did_not_show_up = models.BooleanField(_("User did not show up"), default=False)
 
   class Meta:

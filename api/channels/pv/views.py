@@ -34,7 +34,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
       if meeting.appointments.count() >= meeting.max_appointments:
         return response.Response({"detail": "This meeting has exceeded the maximum amount of appointments."}, status=status.HTTP_400_BAD_REQUEST)
       else:
-        models.PVMeetingAppointment.objects.create(user=request.user, meeting=meeting, object_channel=request.channel)
+        models.PVMeetingAppointment.objects.create(user=request.user, meeting=meeting, object_channel=request.channel, special_conditions=request.data.get('special_conditions', None))
         return response.Response({"detail": "Successfully appointed."}, status=status.HTTP_200_OK)
 
   @decorators.detail_route(["POST"])
