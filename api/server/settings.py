@@ -189,7 +189,7 @@ STATIC_URL = '/static/'
 
 # Email
 
-EMAIL_HOST='smtp.zoho.com'
+EMAIL_HOST=os.environ.get('EMAIL_HOST', None)
 EMAIL_PORT=465
 EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER', None)
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD', None)
