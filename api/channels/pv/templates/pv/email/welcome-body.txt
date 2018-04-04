@@ -3,7 +3,7 @@
 {% block content %}
   Seja bem vindo à plataforma de voluntariado da Parceiros Voluntários! \o/
   
-  Para começar é bem fácil: <b>escolha uma das vagas de voluntariado abertas</b> no site. Veja todas aqui (http://beta.parceirosvoluntarios.atados.com.br/vagas).
+  Para começar é bem fácil: <b>escolha uma das vagas de voluntariado abertas</b> no site. Veja todas aqui (http://parceirosvoluntarios.atados.com.br/vagas).
 
   Pedimos também que complete o seu perfil (#) com dados detalhados para podermos conhecê-lo melhor e sugerirmos vagas que se encaixam no seu perfil.
   
