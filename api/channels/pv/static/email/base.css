@@ -70,7 +70,13 @@ table.content {
 .logo-wrapper {
   top: -2px;
   right: 50px;
+  width: 200px;
+  height: 75px;
   position: relative;
+}
+
+.logo-wrapper img {
+  width: 100%;
 }
 
 .signature-wrapper {
