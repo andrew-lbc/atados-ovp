@@ -5,7 +5,7 @@
   
   Estamos analisando o conteúdo e detalhes da vaga e em até 48 horas aprovaremos a publicação na plataforma ou entraremos em contato com você.
   
-  Qualquer dúvida, envie um e-mail para (email) e fale com a gente.
+  Qualquer dúvida, envie um e-mail para contato@atados.com.br e fale com a gente.
   
   Equipe Atados
 {% endblock content %}

@@ -9,7 +9,7 @@
   
   É só clicar no link acima e seguir as orientações.  
   
-  Qualquer dúvida, fale com a gente enviando um e-mail para (email).
+  Qualquer dúvida, fale com a gente enviando um e-mail para contato@atados.com.br.
   
   Equipe Atados
 {% endblock content %}
