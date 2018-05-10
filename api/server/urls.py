@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
+#import docs.urls
+from rest_framework.documentation import include_docs_urls
 
 import sandbox.urls
 import docs.urls
@@ -23,7 +25,7 @@ import channels.pv.urls
 
 urlpatterns = [
     # API Documentation
-    url(r'^docs/', include(docs.urls)),
+    #url(r'^docs/', include_docs_urls(title='Atados Documentation', public=False)),
 
     # API
     url(r'^', include(sandbox.urls)),

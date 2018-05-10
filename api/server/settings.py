@@ -40,6 +40,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [".localhost", "api.beta.atados.com.br"]
 
+validate_CNPJ = True
 
 # Application definition
 from ovp import get_core_apps
@@ -251,6 +252,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
   'https://www.googleapis.com/auth/userinfo.profile'
 ]
 
+JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'client_secrets.json')
+
 # Social Auth
 
 SOCIAL_AUTH_STRATEGY = 'ovp.apps.users.auth.oauth2.strategy.OVPDjangoStrategy'
@@ -287,10 +290,6 @@ CORS_ALLOW_HEADERS = default_headers + (
   'x-unauthenticated-upload',
   'x-ovp-channel',
 )
-
-# Jet
-
-JET_INDEX_DASHBOARD = 'ovp.admin.jet.dashboard.CustomIndexDashboard'
 
 if env == 'production':
   from .production import *
