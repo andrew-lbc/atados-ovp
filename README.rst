@@ -74,4 +74,4 @@ We use `SemVer <http://semver.org/>`_ for versioning. For the versions available
 
 License
 ---------------
-This project is licensed under the GNU GPLv3 License see the `LICENSE.md <https://github.com/atados/atados-ovp/blob/master/LICENSE.md>`_ file for details
+This project is licensed under the GNU AGPLv3 License see the `LICENSE.md <https://github.com/atados/atados-ovp/blob/master/LICENSE.md>`_ file for details
