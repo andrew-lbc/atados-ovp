@@ -1,0 +1,21 @@
+          {% extends 'email/base.txt' %}
+            {% block content %}
+              Vaga publicada :)
+
+              Oi, a vaga {{project.name}} tá no ar! Agora a gente vai tentar fazer ela bombar de inscrições. Fechado?
+
+              Vocês receberão um novo email toda vez que algum(a) voluntário(a) se inscrever.
+
+              Depois daí, não tem jeito, é com vocês! Precisa entrar em contato e combinar os próximos passos. Garantindo que seja rápido, pra pessoa não desanimar!
+
+
+              DICAS QUENTES
+
+              Antes da ação
+                  Montem um email padrão, com todas as informações importantes, pra facilitar na hora de responder as pessoas que se inscreverem nesta vaga, preparem uma capacitação e respondam rapidamente os(as) inscritos(as).
+
+              Durante a ação
+                  Deixem bem alinhadas as expectativas e responsabilidades dos dois lados, estabeleçam acordos claros, apresentem a instituição e assinem sempre um termo de voluntariado.
+
+              CONFIRA COMO ESTÁ SUA VAGA: {{act_url}}
+            {% endblock content %}

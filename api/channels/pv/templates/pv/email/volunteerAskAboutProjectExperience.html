@@ -1,0 +1,13 @@
+            {% extends 'email/base.html' %}
+            {% block content %}
+              <h1>Precisamos do seu Feedback.</h1>
+              <p>Oi, você se cadastrou na vaga de voluntariado {{project_name}}</p>
+              <p>Então, clique no botão abaixo e conta para a gente, rapidinho, como foi.</p>
+
+              <div class="text-center v-margin-22">
+                <a href="{{feedback_form_url}}" class="button">Conte-nos sobre sua experiência!</a>
+              </div>
+
+              <p>Valeu, hoje era só isso mesmo ;)</p>
+              <p>As suas respostas vão ajudar muito a gente a melhorar nossos serviços e mobilizar cada vez mais pessoas como você!</p>
+            {% endblock content %}

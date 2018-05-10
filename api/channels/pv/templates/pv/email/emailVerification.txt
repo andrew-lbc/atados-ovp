@@ -1,0 +1,10 @@
+{% extends 'email/base.txt' %}
+{% block content %}
+	Confirme o email da sua conta no Atados clicando no link abaixo:
+
+	{{ site }}/confirmar/email/?token={{ token }}
+
+	Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)
+
+	Abraços carinhosos, equipe Atados
+{% endblock content %}

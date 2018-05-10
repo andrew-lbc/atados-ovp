@@ -1,0 +1,16 @@
+          {% extends 'email/base.html' %}
+            {% block content %}
+              <h1>Vaga publicada :)</h1>
+              <p>Oi, a vaga <strong>{{project.name}}</strong> tá no ar! Agora a gente vai tentar fazer ela bombar de inscrições. Fechado?</p>
+              <p>Você receberá um novo email toda vez que algum(a) voluntário(a) se inscrever.</p>
+              <p>Depois daí, não tem jeito, é com você! Precisa entrar em contato e combinar os próximos passos. Garantindo que seja rápido, pra pessoa não desanimar!</p>
+
+              <h3 class="text-orange">DICAS QUENTES</h3>
+              <p><strong>Antes da ação</strong><br>
+              Monte um email padrão, com todas as informações importantes, pra facilitar na hora de responder as pessoas que se inscreverem nesta vaga, prepare uma capacitação e responda rapidamente os(as) inscritos(as).</p>
+              <p><strong>Durante a ação</strong><br>
+              Deixe bem alinhadas as expectativas e responsabilidades dos dois lados, estabeleça acordos claros, apresente a instituição e assinem sempre um termo de voluntariado.</p>
+              <div class="text-center">
+                <a href="{{act_url}}" class="button">CONFIRA COMO ESTÁ SUA VAGA</a>
+              </div>
+            {% endblock content %}

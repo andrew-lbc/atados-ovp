@@ -1,0 +1,23 @@
+          {% extends 'email/base.html' %}
+            {% block content %}
+              <h1>Nova inscrição :)</h1>
+              <p>Oi, uma nova pessoa se inscreveu na vaga <strong>{{apply.project.name}}</strong>.</p>
+
+              <div class="gray-box big">
+                <p><strong>Nome: </strong>{{apply.volunteer.user.name}}</p>
+                <p><strong>Email: </strong>{{apply.volunteer.user.email}}</p>
+                {% if apply.volunteer.user.phone %}
+                <p><strong>Telefone: </strong>{{apply.volunteer.user.phone}}</p>
+                {% endif %}
+                <br />
+                {% if volunteer_message %}
+                <p><strong>Mensagem: </strong><span class="italic">{{volunteer_message}}</span></p>
+                {% endif %}
+              </div>
+
+              <p>Agora é com vocês! Clique no botão aqui embaixo pra entrar em contato com ela, o mais rápido possível, e combinar os próximos passos.</p>
+
+              <div class="text-center">
+                <a href="mailto:{{apply.volunteer.user.email}}" class="button">RESPONDA O(A) VOLUNTÁRIO(A)</a>
+              </div>
+            {% endblock content %}

@@ -1,0 +1,14 @@
+          {% extends 'email/base.html' %}
+            {% block content %}
+              <h1>Você se inscreveu em uma vaga :)</h1>
+              <p>Ebaaa! Caiu pra gente aqui que você se inscreveu na vaga <strong>{{project.name}}</strong> do <strong>{{project.nonprofit.name}}</strong> :)</p>
+              <p>O pessoal responsável já recebeu sua mensagem e agora eles devem entrar em contato com você. Mas, se tiver afim de já ir adiantando as coisas, seguem abaixo os dados deles:</p>
+              <div class="gray-box">
+                <p><strong>Nome: </strong>{{project.responsible}}</p>
+                <p><strong>Email: </strong>{{project.email}}</p>
+                <p><strong>Telefone: </strong>{{project.phone}}</p>
+              </div>
+
+              <h2>RECADO IMPORTANTÍSSIMO!</h2>
+              <p>Não precisamos nem te lembrar da importância do seu comprometimento daqui pra frente, né? Voluntariado é muito legal, mas não é bagunça. Responda o pessoal direitinho e não esqueça de avisar caso não possa comparecer.</p>
+            {% endblock content %}

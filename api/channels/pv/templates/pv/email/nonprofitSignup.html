@@ -1,0 +1,40 @@
+          {% extends 'email/base.html' %}
+            {% block content %}
+              <h1>Cadastro recebido :)</h1>
+              <p>Oi, é isso ai! O cadastro foi enviado com sucesso e agora você + a gente + outras centenas de organizações, formamos (o que gostamos de chamar de) uma "rede viva de transformação". </p>
+              <p>Vamos dar uma olhada no cadastro e, tudo estando “nos conformes”, já publicamos no site.</p>
+
+              <p><strong>Checklist “nos conformes”:</strong></p>
+              <ul class="checklist">
+                <li>
+                  <p>
+                    <span class="mark-1"></span>
+                    <strong>Logo</strong> com boa resolução. (tamanho: 200x200px)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span class="mark-2"></span>
+                    <span><strong>Imagem de capa</strong> bonitona! (tamanho: 1440x340px)</span>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span class="mark-3"></span>
+                    <span>No quadro <strong>"Detalhe"</strong> garantam um texto bom e curto, explicando resumidamente quem são vocês.</span>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span class="mark-4"></span>
+                    <span>Já no quadro <strong>"Descrição"</strong> podem falar mais, como: qual o público atendido, atividades desenvolvidas, objetivos da organização...</span>
+                  </p>
+                </li>
+              </ul>
+              <p class="v-margin-22">
+                Se seu perfil não explica algum desses pontos clique no botão abaixo e adicione as informações necessárias.
+              </p>
+              <div class="text-center">
+                <a href="{{review_profile_url}}" class="button">DEIXE SEU CADASTRO “NOS CONFORMES”</a>
+              </div>
+            {% endblock content %}

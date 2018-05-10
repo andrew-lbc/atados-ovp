@@ -1,0 +1,9 @@
+{% extends 'email/base.html' %}
+{% block content %}
+<h1>Acompanhamento de rotina :)</h1>
+<p>Oi, faz uma semana que você se inscreveu na vaga <strong>{{project.name}}</strong> da <strong>{{project.nonprofit.name}}</strong>, certo? E ai, já estão em contato?</p>
+<div class="text-center">
+  <a href="{{confirm_url}}" class="button button-confirm">SIM</a>
+  <a href="{{refute_url}}" class="button button-cancel">NÂO</a>
+</div>
+{% endblock content %}

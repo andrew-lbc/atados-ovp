@@ -1,0 +1,16 @@
+          {% extends 'email/base.txt' %}
+            {% block content %}
+              Sua vaga foi criada e está em aprovação
+              Oi, sua vaga foi criada com sucesso, agora vamos dar uma olhada nela e, tudo estando “nos conformes”, publicamos em até 3 dias.
+
+              Checklist “nos conformes”, sua vaga deve explicar:
+                - Qual atividade o voluntário irá realizar
+                - Qual a importância dessa atividade
+                - Qual o público atendido
+                - Pré-requisitos
+                - Capacitações
+                - Outras informações relevantes
+
+                Se sua vaga não explica algum desses pontos clique no botão abaixo e adicione as informações necessárias.
+                DEIXE SEU VAGA "NOS CONFORMES": {{edit_project_url}}
+            {% endblock content %}

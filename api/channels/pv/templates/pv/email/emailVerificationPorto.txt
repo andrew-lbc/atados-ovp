@@ -1,0 +1,11 @@
+Confirme o email da sua conta no Porto Voluntário clicando no link abaixo:
+
+{{ site }}/confirmar/email/?token={{ token }}
+
+O link só pode ser aberto no Chrome ou Firefox. Se o Internet Explorer for o seu navegador padrão, copie e cole o link em um navegador válido.
+
+Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)
+
+Abraços, Responsabilidade Social e Ambiental
+
+Porto Seguro

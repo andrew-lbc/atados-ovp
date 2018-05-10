@@ -1,0 +1,13 @@
+          {% extends 'email/base.txt' %}
+            {% block content %}
+              Você se inscreveu em uma vaga :)
+
+              Ebaaa! Caiu pra gente aqui que você se inscreveu na vaga {{project.name}} do {{project.nonprofit.name}} :)
+
+              O pessoal responsável já recebeu sua mensagem e agora eles devem entrar em contato com você. Mas, se tiver afim de já ir adiantando as coisas, seguem abaixo os dados deles:
+                Nome: {{project.responsible}}
+                Email: {{project.email}}
+                Telefone: {{project.phone}}
+              RECADO IMPORTANTÍSSIMO!
+                Não precisamos nem te lembrar da importância do seu comprometimento daqui pra frente, né? Voluntariado é muito legal, mas não é bagunça. Responda o pessoal direitinho e não esqueça de avisar caso não possa comparecer.
+            {% endblock content %}

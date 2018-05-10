@@ -1,0 +1,8 @@
+{% extends 'email/base.txt' %}
+{% block content %}
+Acompanhamento de rotina :)
+Oi, faz uma semana que você se inscreveu na vaga {{project.name}} da {{project.nonprofit.name}}, certo? E ai, já estão em contato?
+
+Se si, acesse o seguinte link: {{confirm_url}}
+Caso contrário, siga por esse link: {{refute_url}}
+{% endblock content %}

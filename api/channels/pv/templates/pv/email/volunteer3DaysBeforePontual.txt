@@ -1,0 +1,10 @@
+Atenção, atenção, atenção! :)
+
+Viemos lembrá-lo que daqui três dias temos um compromisso importante. É o ato {{ project_name }}, que você se cadastrou há uns dias.
+
+Nós já colocamos na nossa agenda, e você?
+E nossas expectativas estão altas. Esperamos que as suas também.
+
+Quando o assunto é ajudar, ficamos empolgados. Principalmente por saber que existem pessoas como você, que lutam por um mundo melhor.
+
+Boa sorte e bom voluntariado. Abraços carinhosos, equipe Atados.

@@ -1,0 +1,16 @@
+          {% extends 'email/base.txt' %}
+            {% block content %}
+              Nova inscrição :)
+
+              Oi, uma nova pessoa se inscreveu na vaga {{apply.project.name}}.
+                Nome: {{apply.volunteer.user.name}}
+                Email: {{apply.email}}
+                {% if apply.volunteer.user.phone %}Telefone: {{apply.volunteer.user.phone}}{% endif %}
+                {% if volunteer_message %}
+                Mensagem: {{volunteer_message}}
+                {% endif %}
+
+              Agora é com vocês! Clique no botão aqui embaixo pra entrar em contato com ela, o mais rápido possível, e combinar os próximos passos.
+
+              RESPONDA O(A) VOLUNTÁRIO(A): {{apply.volunteer.user.email}}
+            {% endblock content %}

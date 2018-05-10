@@ -1,0 +1,11 @@
+{% extends 'email/base.html' %}
+{% block content %}
+  <h1>Confirme o email da sua conta no Atados clicando no link abaixo:</h1>
+  <p>
+  	<a href="{{site}}/confirmar/email/?token={{token}}">
+  		{{site}}/confirmar/email/?token={{token}}
+  	</a>
+  </p>
+  <p>Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)</p>
+  <p>Abraços carinhosos, equipe Atados.</p>
+{% endblock content %}
