@@ -1,13 +1,12 @@
 -r api/django-ovp/requirements/requirements-dev.txt
 django-git-submodules
 django-rest-swagger
-celery
 django-debug-toolbar
 dj-database-url
 elasticsearch
 django-email-log
 django-inlinecss
 rollbar
+celery
+amqp==2.1.3
 -e git://github.com/leonardoarroyo/django-gcloud-storage.git@49fdc994e62926f47f17cffac83178015af35986#egg=django_gcloud_storage
-
-
