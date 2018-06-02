@@ -72,3 +72,4 @@ runcelery.sh
 runcelerycam.sh
 
 media
+.env
