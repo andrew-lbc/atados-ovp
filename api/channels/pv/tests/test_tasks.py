@@ -27,7 +27,7 @@ class TestEmailTriggers(TestCase):
   def test_appointment_notification_task(self):
     """Assert cellery task is created when creating an appointment """
     mail.outbox = []
-    instance = PVMeetingAppointment.objects.create(user=self.user, meeting=self.meeting, object_channel="pv")
+    PVMeetingAppointment.objects.create(user=self.user, meeting=self.meeting, object_channel="pv")
 
     self.assertTrue(len(mail.outbox) == 2)
     self.assertTrue(mail.outbox[0].subject == get_email_subject("pv", "appointmentNotification", "Appointment notification"))
