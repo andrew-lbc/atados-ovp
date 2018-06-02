@@ -22,17 +22,12 @@ class TestEmailTriggers(TestCase):
     app.control.purge()
 
   @override_settings(DEFAULT_SEND_EMAIL="sync",
-                     CELERY_EAGER_PROPAGATES_EXCEPTIONS=True,
-                     CELERY_ALWAYS_EAGER=True,
-                     BROKER_BACKEND='memory')
+                     CELERY_TASK_EAGER_PROPAGATES_EXCEPTIONS=True,
+                     CELERY_TASK_ALWAYS_EAGER=True)
   def test_appointment_notification_task(self):
     """Assert cellery task is created when creating an appointment """
-    instance = PVMeetingAppointment.objects.create(user=self.user, meeting=self.meeting, object_channel="pv")
     mail.outbox = []
+    instance = PVMeetingAppointment.objects.create(user=self.user, meeting=self.meeting, object_channel="pv")
 
-    tasks.send_notification_one_day_before_meeting.apply(
-      kwargs={"appointment_pk": instance.pk},
-    )
-
-    self.assertTrue(len(mail.outbox) == 1)
+    self.assertTrue(len(mail.outbox) == 2)
     self.assertTrue(mail.outbox[0].subject == get_email_subject("pv", "appointmentNotification", "Appointment notification"))
