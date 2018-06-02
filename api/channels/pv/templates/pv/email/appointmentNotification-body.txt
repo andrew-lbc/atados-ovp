@@ -3,12 +3,13 @@
 {% block content %}
   Olá! Obrigado por dar esse passo a mais e agendar a sua Reunião de Conscientização (presencial) aqui na Parceiros Voluntários! Confira data, horário e endereço abaixo:
   
-  Data:{{ appointment.date }}
+  Data: {{ appointment.date }}
   {% if appointment and appointment.address %}
     Endereço: {{ appointment.address.address_line }}
     {% if appointment.address.typed_address2 %}
     Complemento:</b> {{ appointment.address.typed_address2 }}
     {% endif %}
+  {% endif %}
   Boa reunião :)
   Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)
   Equipe Parceiros Voluntários

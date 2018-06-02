@@ -10,5 +10,5 @@
     {% if appointment.address.typed_address2 %}
     Complemento: {{ appointment.address.typed_address2 }}
     {% endif %}
-{% endif %}
+  {% endif %}
 {% endblock %}
