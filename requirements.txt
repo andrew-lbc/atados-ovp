@@ -9,4 +9,5 @@ django-inlinecss
 rollbar
 celery
 amqp==2.1.3
+django-oauth-toolkit==1.1.2
 -e git://github.com/leonardoarroyo/django-gcloud-storage.git@49fdc994e62926f47f17cffac83178015af35986#egg=django_gcloud_storage
