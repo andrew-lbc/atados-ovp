@@ -35,6 +35,16 @@ class TestEmailTriggers(TestCase):
     self.assertTrue(mail.outbox[0].subject == get_email_subject("default", "atados-askProjectInteractionConfirmation-toVolunteer", "Ask project confirmation"))
     self.assertTrue("vaga test project" in mail.outbox[0].body)
 
+  def test_applying_schedules_reminder_email(self):
+    """Assert cellery task to remind volunteer is created when user applies to project"""
+    mail.outbox = []
+    Job.objects.create(project=self.project, start_date=timezone.now(), end_date=timezone.now(), object_channel="default")
+    Apply.objects.create(user=self.user, project=self.project, object_channel="default")
+
+    self.assertTrue(len(mail.outbox) == 4)
+    self.assertTrue(mail.outbox[1].subject == "Um ato está chegando... estamos ansiosos para te ver.")
+    self.assertTrue("test project" in mail.outbox[1].body)
+
   def test_applying_schedules_ask_about_project_experience_to_volunteer(self):
     """Assert cellery task to ask volunteer about project experience is created when user applies to project"""
     mail.outbox = []
@@ -50,8 +60,8 @@ class TestEmailTriggers(TestCase):
     job = Job.objects.create(project=self.project, start_date=timezone.now(), end_date=timezone.now(), object_channel="default")
     Apply.objects.create(user=self.user, project=self.project, object_channel="default")
 
-    self.assertTrue(mail.outbox[1].subject == "Como foi sua experiência com o Atados?!")
-    self.assertTrue(">test project<" in mail.outbox[1].alternatives[0][0])
+    self.assertTrue(mail.outbox[2].subject == "Como foi sua experiência com o Atados?!")
+    self.assertTrue(">test project<" in mail.outbox[2].alternatives[0][0])
 
   def test_publishing_project_schedules_ask_about_experience_to_organization(self):
     """Assert cellery task to ask organization about project experience is created when user project is published"""

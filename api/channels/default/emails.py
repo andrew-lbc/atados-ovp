@@ -19,9 +19,14 @@ class AtadosScheduledEmail(BaseMail):
     """
     return self.sendEmail('atados-askAboutProjectExperience-toVolunteer', 'Ask about project experience', context)
 
-
   def sendAskAboutProjectExperienceToOrganization(self, context={}):
     """
     Sent to organization 2 days after project date or 45 days after start(for recurrent projects)
     """
     return self.sendEmail('atados-askAboutProjectExperience-toOrganization', 'Ask about project experience', context)
+
+  def sendProjectReminderToVolunteer(self, context={}):
+    """
+    Sent to volunteer 3 days before project
+    """
+    return self.sendEmail('atados-projectReminder-toVolunteer', 'You have a project in 3 days', context)

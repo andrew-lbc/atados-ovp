@@ -19,6 +19,21 @@ def schedule_ask_project_interaction_to_volunteer(sender, *args, **kwargs):
     )
 post_save.connect(schedule_ask_project_interaction_to_volunteer, sender=Apply)
 
+def schedule_project_reminder_to_volunteer(sender, *args, **kwargs):
+  """
+  Schedule task for 3 days before project to remind volunteer
+  """
+  instance = kwargs["instance"]
+  project = instance.project
+
+  if instance.channel.slug == "default" and kwargs["created"] and not kwargs["raw"]:
+    if hasattr(project, "job"):
+      tasks.send_project_reminder_to_volunteer.apply_async(
+        eta=project.job.start_date - timedelta(days=3),
+        kwargs={"apply_pk": instance.pk},
+      )
+post_save.connect(schedule_project_reminder_to_volunteer, sender=Apply)
+
 def calculate_experience_email_eta(project):
   eta = None
   if hasattr(project, "work"):

@@ -14,6 +14,14 @@ def send_ask_project_interaction_confirmation_to_volunteer(apply_pk):
   except Apply.DoesNotExist:
     pass
 
+@task(name='channels.default.tasks.send_project_reminder_to_volunteer')
+def send_project_reminder_to_volunteer(apply_pk):
+  try:
+    apply = Apply.objects.get(pk=apply_pk)
+    AtadosScheduledEmail(apply.user).sendProjectReminderToVolunteer({"apply": apply})
+  except Apply.DoesNotExist:
+    pass
+
 @task(name='channels.default.tasks.send_ask_about_project_experience_to_volunteer')
 def send_ask_about_project_experience_to_volunteer(apply_pk):
   try:
