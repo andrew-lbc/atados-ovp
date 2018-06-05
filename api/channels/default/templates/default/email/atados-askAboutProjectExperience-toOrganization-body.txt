@@ -1,0 +1,13 @@
+{% extends extend.txt %}
+{% block content %}
+  Fala, gente boa!
+  Queremos saber como está sendo sua experiência com o Atados e com a vaga **{{ project.name }}**.
+  Os voluntários compareceram? O que deu certo ou errado? Essa troca de informações entre nós é essencial para que possamos melhorar cada vez mais nosso trabalho.
+
+  Conte-nos sobre sua experiência![[[feedback_form_url]]]
+
+  Não esqueça de assinalar no seu **PAINEL DE CONTROLE** [[[act_url]]], no site do Atados, os voluntários que contribuiram na ação.
+
+  Abraços carinhosos,
+  Equipe Atados
+{% endblock content %}

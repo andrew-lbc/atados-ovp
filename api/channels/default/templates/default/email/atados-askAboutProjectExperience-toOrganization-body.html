@@ -1,0 +1,16 @@
+{% extends extend.html %}
+{% block content %}
+  <h1>Fala, gente boa!</h1>
+  <p>Queremos saber como está sendo sua experiência com o Atados e com a vaga <strong>{{ project.name }}</strong>.</p>
+  <p>Os voluntários compareceram? O que deu certo ou errado? Essa troca de informações entre nós é essencial para que possamos melhorar cada vez mais nosso trabalho.</p>
+
+  <p>
+    <a href="[[feedback_form_url]]" class="btn btn-pink btn-large">
+      Conte-nos sobre sua experiência!
+    </a>
+  </p>
+
+  <p>Não esqueça de assinalar no seu <a href="[[act_url]]"><strong>PAINEL DE CONTROLE</strong></a>, no site do Atados, os voluntários que contribuiram na ação.</p>
+  <p>Abraços carinhosos,<br>
+  <strong>Equipe Atados</strong></p>
+{% endblock content %}

@@ -1,11 +1,11 @@
 {% extends extend.html %}
 {% block content %}
   <h1>Precisamos do seu Feedback.</h1>
-  <p>Oi, você se cadastrou na vaga de voluntariado {{project_name}}</p>
-  <p>Então Clique no botão abaixo e conta para a gente, rapidinho, como foi.</p>
+  <p>Oi, você se cadastrou na vaga de voluntariado <strong>{{ apply.project.name }}</strong>.</p>
+  <p>Então clique no botão abaixo e conta para a gente, rapidinho, como foi.</p>
 
   <p>
-    <a href="{{feedback_form_url}}" class="btn btn-pink btn-large">
+    <a href="[[feedback_form_url]]" class="btn btn-pink btn-large">
       Conte-nos sobre sua experiência!
     </a>
   </p>

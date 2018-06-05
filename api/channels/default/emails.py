@@ -12,3 +12,16 @@ class AtadosScheduledEmail(BaseMail):
     Sent 7 days after user applies to a project
     """
     return self.sendEmail('atados-askProjectInteractionConfirmation-toVolunteer', 'Ask project confirmation', context)
+
+  def sendAskAboutProjectExperienceToVolunteer(self, context={}):
+    """
+    Sent to volunteer 2 days after project date or 45 days after start(for recurrent projects)
+    """
+    return self.sendEmail('atados-askAboutProjectExperience-toVolunteer', 'Ask about project experience', context)
+
+
+  def sendAskAboutProjectExperienceToOrganization(self, context={}):
+    """
+    Sent to organization 2 days after project date or 45 days after start(for recurrent projects)
+    """
+    return self.sendEmail('atados-askAboutProjectExperience-toOrganization', 'Ask about project experience', context)
