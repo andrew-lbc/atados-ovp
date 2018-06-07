@@ -1,0 +1,17 @@
+{% extends extend.html %}
+{% block content %}
+  <h1>Precisamos do seu Feedback.</h1>
+  <p>Oi, você se cadastrou na vaga de voluntariado <strong>{{ apply.project.name }}</strong>.</p>
+  <p>Então clique no botão abaixo e conta para a gente, rapidinho, como foi.</p>
+
+  <p>
+    <a href="{{feedback_form_url}}" class="btn btn-pink btn-large">
+      Conte-nos sobre sua experiência!
+    </a>
+  </p>
+
+  <p>Valeu, hoje era só isso mesmo ;)</p>
+  <p>As suas respostas vão ajudar muito a gente a melhorar nossos serviços e mobilizar cada vez mais pessoas como você!</p>
+
+  <p><b>Equipe Atados</b></p>
+{% endblock content %}
