@@ -65,7 +65,6 @@ def schedule_ask_about_project_experience_to_organization(sender, *args, **kwarg
   if instance.channel.slug == "default" and not kwargs["raw"]:
     if instance.published == True and (instance.pk == None or Project.objects.get(pk=instance.pk).published == False):
       eta = calculate_experience_email_eta(instance)
-
       if eta:
         tasks.send_ask_about_project_experience_to_organization.apply_async(eta=eta, kwargs={"project_pk": instance.pk})
 pre_save.connect(schedule_ask_about_project_experience_to_organization, sender=Project)

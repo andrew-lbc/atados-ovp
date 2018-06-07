@@ -3,6 +3,6 @@
 Acompanhamento de rotina :)
 Oi, faz uma semana que você se inscreveu na vaga {{ apply.project.name }}{% if apply.project.organization %}, da<strong>{{ apply.project.organization.name }}</strong>{% endif %}, certo? E ai, já estão em contato?
 
-Se sim, acesse o seguinte link: 
-Caso contrário, siga por esse link: 
+Se sim, acesse o seguinte link: {{ confirm_url }}
+Caso contrário, siga por esse link: {{ refute_url }}
 {% endblock content %}

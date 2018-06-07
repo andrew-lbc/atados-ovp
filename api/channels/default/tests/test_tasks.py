@@ -42,7 +42,9 @@ class TestEmailTriggers(TestCase):
     Apply.objects.create(user=self.user, project=self.project, object_channel="default")
 
     self.assertTrue(len(mail.outbox) == 4)
-    self.assertTrue(mail.outbox[1].subject == "Um ato está chegando... estamos ansiosos para te ver.")
+    for m in mail.outbox:
+      print(m.subject)
+    self.assertTrue(mail.outbox[1].subject == "Uma ação está chegando... estamos ansiosos para te ver.")
     self.assertTrue("test project" in mail.outbox[1].body)
 
   def test_applying_schedules_ask_about_project_experience_to_volunteer(self):

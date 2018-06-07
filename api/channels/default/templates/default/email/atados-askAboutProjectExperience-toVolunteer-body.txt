@@ -3,7 +3,7 @@
   Oi, você se cadastrou na vaga de voluntariado **{{ apply.project.name }}**.
   Então clique no botão abaixo e conta para a gente, rapidinho, como foi.
 
-  Conte-nos sobre sua experiência! [[[feedback_form_url]]]
+  Conte-nos sobre sua experiência! [{{feedback_form_url}}]
 
   Valeu, hoje era só isso mesmo ;)
   As suas respostas vão ajudar muito a gente a melhorar nossos serviços e mobilizar cada vez mais pessoas como você!
