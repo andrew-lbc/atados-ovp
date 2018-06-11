@@ -5,4 +5,4 @@ CORS_ALLOW_HEADERS = default_headers + (
   'x-ovp-channel'
 )
 INTERNAL_IPS = ('127.0.0.1', )
-ALLOWED_HOSTS = ['.localhost', 'local.atados.com.br']
+ALLOWED_HOSTS = ['.localhost', '.local.atados.com.br']

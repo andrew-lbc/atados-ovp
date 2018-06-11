@@ -291,7 +291,7 @@ CORS_ALLOW_HEADERS = default_headers + (
 
 # Jet
 
-JET_INDEX_DASHBOARD = 'ovp.admin.jet.dashboard.CustomIndexDashboard'
+JET_INDEX_DASHBOARD = 'ovp.apps.admin.jet.dashboard.CustomIndexDashboard'
 
 if env == 'production':
   from .production import *
