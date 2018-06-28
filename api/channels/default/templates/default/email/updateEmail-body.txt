@@ -1,0 +1,9 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Email Alterado
+
+  Olá, {{ name }} Seu email de acesso no Atados foi alterado com sucesso para {{ email }}.
+
+  Caso essa alteração não foi feita por você, entre em contato com Atados por esse link.
+{% endblock %}
