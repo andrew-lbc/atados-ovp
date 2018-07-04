@@ -214,6 +214,8 @@ HAYSTACK_CONNECTIONS = {
   },
 }
 
+HAYSTACK_SIGNAL_PROCESSOR='ovp.apps.search.signals.TiedModelRealtimeSignalProcessor'
+
 # Authentication backends
 
 AUTHENTICATION_BACKENDS = [
