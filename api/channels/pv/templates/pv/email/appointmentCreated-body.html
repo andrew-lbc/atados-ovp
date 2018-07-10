@@ -1,15 +1,19 @@
 {% extends extend.html %}
 
 {% block content %}
-  <h1>Reunião presencial criada!</h1>
+  <h1>
+    Confirmação de reunião presencial
+  <h1>
+
   <p>
-  	Olá! Foi criada uma nova reunião presencial no Admin da plataforma de voluntariado da Parceiros Voluntários:
+    Olá! Sua reunião com a Parceiros Voluntários foi confirmada:
   </p>
-  <p><b>Data:</b>{{ appointment.date }}</p>
-  {% if appointment and appointment.address %}
-    <p><b>Endereço:</b> {{ appointment.address.address_line }}</p>
-      {% if appointment.address.typed_address2 %}
-        <p><b>Complemento:</b> {{ appointment.address.typed_address2 }}</p>
+
+  <p><b>Data:</b> {{ appointment.meeting.date | date:"d/m/Y à\s H:i" }}</p>
+  {% if appointment and appointment.meeting.address %}
+    <p><b>Endereço:</b> {% if appointment.meeting.address.address_line %}{{ appointment.meeting.address.address_line }}{% else %}{{ appointment.meeting.address.typed_address }}{% endif %}</p>
+      {% if appointment.meeting.address.typed_address2 %}
+        <p><b>Complemento:</b> {{ appointment.meeting.address.typed_address2 }}</p>
       {% endif %}
   {% endif %}
 {% endblock %}

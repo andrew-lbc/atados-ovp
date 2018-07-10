@@ -1,14 +1,10 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Reunião presencial criada!
+  Confirmação de reunião presencial
 
-  Olá! Foi criada uma nova reunião presencial no Admin da plataforma de voluntariado da Parceiros Voluntários:
-  Data: {{ appointment.date }}
-  {% if appointment and appointment.address %}
-    Endereço: {{ appointment.address.address_line }}
-    {% if appointment.address.typed_address2 %}
-    Complemento: {{ appointment.address.typed_address2 }}
-    {% endif %}
-  {% endif %}
+  Olá! Sua reunião com a Parceiros Voluntários foi confirmada:
+  Data: {{ appointment.meeting.date | date:"d/m/Y à\s H:i" }}
+  {% if appointment and appointment.meeting.address %}Endereço: {% if appointment.meeting.address.address_line %}{{ appointment.meeting.address.address_line }}{% else %}{{ appointment.meeting.address.typed_address }}{% endif %}{% endif %}
+  {% if appointment and appointment.meeting.address.typed_address2 %}Complemento: {{ appointment.meeting.address.typed_address2 }}{% endif %}
 {% endblock %}
