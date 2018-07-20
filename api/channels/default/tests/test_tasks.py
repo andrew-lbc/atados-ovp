@@ -42,8 +42,6 @@ class TestEmailTriggers(TestCase):
     Apply.objects.create(user=self.user, project=self.project, object_channel="default")
 
     self.assertTrue(len(mail.outbox) == 4)
-    for m in mail.outbox:
-      print(m.subject)
     self.assertTrue(mail.outbox[1].subject == "Uma ação está chegando... estamos ansiosos para te ver.")
     self.assertTrue("test project" in mail.outbox[1].body)
 
