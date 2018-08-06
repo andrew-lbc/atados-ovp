@@ -2,7 +2,7 @@
 
 {% block content %}
   Você foi convidado para gerenciar a organização {{invite.organization.name}} no site do Atados.
-  Aceitar convite: https://www.atados.com.br/participar?token={{ token.token }}
+  Aceitar convite: https://www.atados.com.br/ong/{{ invite.organization.slug }}/participar
 
   Equipe Atados
 {% endblock content %}
