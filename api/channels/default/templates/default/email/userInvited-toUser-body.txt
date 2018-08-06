@@ -1,5 +1,8 @@
 {% extends extend.txt %}
 
 {% block content %}
-  You are invited to organization {{invite.organization.name}}. Click here to join.
+  Você foi convidado para gerenciar a organização {{invite.organization.name}} no site do Atados.
+  Aceitar convite: https://www.atados.com.br/participar?token={{ token.token }}
+
+  Equipe Atados
 {% endblock content %}

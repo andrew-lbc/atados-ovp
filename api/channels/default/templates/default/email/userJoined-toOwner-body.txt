@@ -1,5 +1,8 @@
 {% extends extend.txt %}
 
 {% block content %}
-  User {{user.name}} ({{user.email}}) has joined your organization {{organization.name}}.
+  Novo membro na organização
+  O usuário {{user.name}}({{user.email}}) agora faz parte da organização {{organization.name}}.
+
+  Equipe Atados
 {% endblock content %}

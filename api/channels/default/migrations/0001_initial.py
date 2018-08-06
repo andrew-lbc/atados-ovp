@@ -5,10 +5,19 @@ from __future__ import unicode_literals
 from django.db import migrations
 
 
+def foward_func(apps, schema_editor):
+    return True
+
+def rewind_func(apps, schema_editor):
+    return True
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('channels', '0007_channelsetting'),
     ]
 
     operations = [
+        migrations.RunPython(foward_func, rewind_func)
     ]
