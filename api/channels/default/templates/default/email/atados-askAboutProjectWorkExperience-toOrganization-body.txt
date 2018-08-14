@@ -1,0 +1,13 @@
+{% extends extend.txt %}
+{% block content %}
+  
+  Precisamos de seu Feedback
+
+  Oi, a vaga {{ project.name }} já está aberta há 30 dias. Gostaríamos de saber como foi sua experiência com o nosso site.
+
+  Quais voluntários realmente apareceram? Foi bom pra vocês? Essas coisas. Bem fácil e rápido assim conseguimos sempre melhorar nosso trabalho.
+
+  CONTA PRA GENTE COMO FOI[{{feedback_form_url}}]
+
+  Equipe Atados
+{% endblock content %}

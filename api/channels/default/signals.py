@@ -37,7 +37,7 @@ post_save.connect(schedule_project_reminder_to_volunteer, sender=Apply)
 def calculate_experience_email_eta(project):
   eta = None
   if hasattr(project, "work"):
-    eta = timezone.now() + timedelta(days=45)
+    eta = timezone.now() + timedelta(days=30)
   elif hasattr(project, "job"):
     eta = project.job.end_date + timedelta(days=2)
 

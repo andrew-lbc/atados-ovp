@@ -1,11 +1,15 @@
 {% extends extend.txt %}
 {% block content %}
-  Oi, você se cadastrou na vaga de voluntariado **{{ apply.project.name }}**.
-  Então clique no botão abaixo e conta para a gente, rapidinho, como foi.
+  Conta pra gente como foi?
 
-  Conte-nos sobre sua experiência! [{{feedback_form_url}}]
+  Oi, lembra da vaga {{ apply.project.name }} que você se inscreveu a um tempo atrás? Gostaríamos de saber como foi sua experiência. Você se tornou voluntário?
+
+  Pode responder rapidinho 4 perguntinhas para nós? Prometemos que não dura mais que 2 minutinhos. 
+
+  Conta pra gente! [{{feedback_form_url}}]
 
   Valeu, hoje era só isso mesmo ;)
+
   As suas respostas vão ajudar muito a gente a melhorar nossos serviços e mobilizar cada vez mais pessoas como você!
 
   Equipe Atados

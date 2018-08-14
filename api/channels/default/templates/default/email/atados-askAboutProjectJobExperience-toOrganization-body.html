@@ -1,0 +1,18 @@
+{% extends extend.html %}
+{% block content %}
+  
+  <h1>Precisamos de seu Feedback</h1>
+
+  <p>Oi, acabou de rolar a vaga <b>{{ project.name }}</b>, certo? Gostaríamos de saber como foi.</p>
+
+  <p>Quais voluntários realmente apareceram? Foi bom pra vocês? Essas coisas. Bem fácil e rápido assim conseguimos sempre melhorar nosso trabalho.</p>
+
+  
+  <p>
+    <a href="{{feedback_form_url}}" class="button">
+      CONTA PRA GENTE COMO FOI
+    </a>
+  </p>
+
+  <p><b>Equipe Atados</b></p>
+{% endblock content %}

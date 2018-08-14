@@ -78,19 +78,30 @@ class AtadosScheduledEmail(BaseMail):
     })
     return self.sendEmail('atados-askAboutProjectExperience-toVolunteer', 'Ask about project experience', context)
 
-  def sendAskAboutProjectExperienceToOrganization(self, context={}):
+  def sendAskAboutProjectJobExperienceToOrganization(self, context={}):
     """
-    Sent to organization 2 days after project date or 45 days after start(for recurrent projects)
+    Sent to organization 2 days after project date or 30 days after start(for recurrent projects)
     """
     router = EmailClientRouterHelper()
     context.update({
       "feedback_form_url": router.mail_ask_about_project_experience_url("organization", context["project"]),
       "edit_project_url": router.edit_project_url(context["project"].organization.slug, context["project"].slug)
     })
-    return self.sendEmail('atados-askAboutProjectExperience-toOrganization', 'Ask about project experience', context)
+    return self.sendEmail('atados-askAboutProjectJobExperience-toOrganization', 'Ask about project experience', context)
 
   def sendProjectReminderToVolunteer(self, context={}):
     """
     Sent to volunteer 3 days before project
     """
     return self.sendEmail('atados-projectReminder-toVolunteer', 'You have a project in 3 days', context)
+
+  def sendAskAboutProjectWorkExperienceToOrganization(self, context={}):
+    """
+    Sent to organization 2 days after project date or 30 days after start(for recurrent projects)
+    """
+    router = EmailClientRouterHelper()
+    context.update({
+      "feedback_form_url": router.mail_ask_about_project_experience_url("organization", context["project"]),
+      "edit_project_url": router.edit_project_url(context["project"].organization.slug, context["project"].slug)
+    })
+    return self.sendEmail('atados-askAboutProjectWorkExperience-toOrganization', 'Ask about project experience', context)

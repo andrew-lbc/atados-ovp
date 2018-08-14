@@ -1,23 +1,19 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Parabéns! :)
+  
+  Você se inscreveu em uma vaga :)
 
-  Estamos todos muitos felizes por você ter se candidatado à vaga {{apply.project.name}}.
-  
-  É muito bom saber que existem pessoas que se importam genuinamente com as outras e querem contribuir para uma sociedade melhor, mais colaborativa e mais ética. :)
-  
-  Agora é só aguardar que o responsável da ONG irá entrar em contato por e-mail ou telefone para passar as próximas instruções. Depois disso é mão na massa e sorriso no rosto.
-  
-  Se a ONG não entrar em contato com você em até 7 dias, fale com a gente pelo e-mail contato@atados.com.br. 
-  
-  Por último, um recadinho. É sempre bom lembrar da importância do comprometimento e da alegria que o voluntário deve ter para exercer suas atividades, afinal, voluntariado é coisa séria. Contamos com você.
-  
-  Dados do responsável pela vaga:
-  
+  Ebaaa! Caiu pra gente aqui que você se inscreveu na vaga {{apply.project.name}} :)
+
+  O pessoal responsável já recebeu sua mensagem e agora eles devem entrar em contato com você. Mas, se tiver afim de já ir adiantando as coisas, seguem abaixo os dados deles:
+
   Nome: {{apply.project.owner.name}}
   Email: {{apply.project.owner.email}}
   Telefone: {{apply.project.owner.phone}}
-  
+
+  RECADO IMPORTANTÍSSIMO!
+  Não precisamos nem te lembrar da importância do seu comprometimento daqui pra frente, né? Voluntariado é muito legal, mas não é bagunça. Responda o pessoal direitinho e não esqueça de avisar caso não possa comparecer.
+
   Equipe Atados
 {% endblock content %}
