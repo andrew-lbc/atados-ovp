@@ -1,0 +1,13 @@
+{% extends extend.txt %}
+{% block content %}
+  
+  Precisamos de seu Feedback
+
+  Oi, acabou de rolar a vaga {{ project.name }}, certo? Gostaríamos de saber como foi.
+
+  Quais voluntários realmente apareceram? Foi bom pra vocês? Essas coisas. Bem fácil e rápido assim conseguimos sempre melhorar nosso trabalho.
+
+  CONTA PRA GENTE COMO FOI[{{feedback_form_url}}]
+
+  Equipe Atados
+{% endblock content %}

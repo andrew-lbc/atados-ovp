@@ -54,7 +54,6 @@ INSTALLED_APPS = get_core_apps() + [
     'django_inlinecss',
     'rest_framework',
     'rest_framework_jwt',
-    'rest_framework_swagger',
     'debug_toolbar',
     'email_log',
     'docs',
@@ -65,6 +64,7 @@ INSTALLED_APPS = get_core_apps() + [
     'social_django',
     'rest_framework_social_oauth2',
     'import_export',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

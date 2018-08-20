@@ -1,15 +1,25 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Seja bem vindo à plataforma de voluntariado do Atados! \o/
-  
-  Para começar é bem fácil: escolha uma das vagas de voluntariado abertas no site. Veja todas aqui (https://atados.com.br/vagas).
+  Boas vindas :)
 
-  Pedimos também que complete o seu perfil com dados detalhados para podermos conhecê-lo melhor e sugerirmos vagas que se encaixam no seu perfil.
+  Seu cadastro foi um sucesso e agora você faz parte do Atados, uma rede viva de pessoas e organizações sociais, que se conectam e se mobilizam pelas causas mais diversas (e das formas mais diversas também) para transformar.
+
+  O próximo passo agora é seu... e é muito importante! 
+
+  {% if organization %}
   
-  Lembre-se: o fortalecimento dessa rede e a mobilização de voluntários melhoram as organizações sociais e transformam pessoas e comunidades.
-  
-  Qualquer dúvida, crítica ou sugestão, entre em contato com a gente. ;)
+    Temos milhares de pessoas procurando por um trabalho voluntário no nosso site. Abra logo a sua vaga e já comece a engajar voluntários na sua organização.
+
+    {{ CLIENT_URL }}/painel/ong/{{ organization.slug }}/criar-vaga ABRIR VAGAS DE VOLUNTARIADO
+
+  {% else %}
+
+    Temos centenas de vagas de voluntariado abertas no site, e você precisa encontrar as que tem mais a sua cara ;)
+
+    {{ CLIENT_URL }}/vagas ENCONTRE VAGAS DE VOLUNTARIADO
+
+  {% endif %}
   
   Equipe Atados
 {% endblock %}

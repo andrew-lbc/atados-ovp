@@ -1,15 +1,16 @@
 {% extends extend.txt %}
 
 {% block content %}
-  Olá, é com grande felicidade que comunicamos: sua ONG foi aprovada e já está online no site!
-  
-  O próximo passo é {{ CLIENT_URL }}/painel/ong/{{ organization.slug }}/criar-vaga CRIAR UMA VAGA para um evento, uma função ou qualquer atividade que sua ONG esteja precisando – e que um ou mais voluntários podem ajudar.
-  
-  Essa vaga vai ser publicada na plataforma da Atados, onde nossos milhares de voluntários poderão acessar e se inscrever. Vamos lá?
-  
-  É só clicar no link acima e seguir as orientações.  
-  
-  Qualquer dúvida, fale com a gente enviando um e-mail para contato@atados.com.br.
-  
+
+  O cadastro da sua organização foi aprovadíssimo :)
+
+  Aproveite para conferir de novo os seus dados e, claro, dar aquele "tapa" nas imagens e textos do perfil de vocês. Um perfil bem feito traz a credibilidade que os(as) voluntários(as) vão procurar.
+
+  O caminho agora é simples. Reflitam aí: Quais funções, atividades, ou pequenas necessidades da sua organização poderiam ser desenvolvidas por voluntários(as)? Daí escolha uma e crie sua primeira vaga de voluntariado.
+
+  É pá-pum! Se fizer com carinho tem muitas chances de chover gente querendo ajudar ;)
+
+  {{ CLIENT_URL }}/painel/ong/{{ organization.slug }}/criar-vaga CRIE SUA PRIMEIRA VAGA DE VOLUNTARIADO
+
   Equipe Atados
 {% endblock content %}

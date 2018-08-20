@@ -1,1 +1,1 @@
-Sua inscrição na vaga {{ project.name }}
+Você se inscreveu em uma vaga :)

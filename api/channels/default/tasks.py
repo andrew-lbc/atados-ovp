@@ -34,6 +34,9 @@ def send_ask_about_project_experience_to_volunteer(apply_pk):
 def send_ask_about_project_experience_to_organization(project_pk):
   try:
     project = Project.objects.get(pk=project_pk)
-    AtadosScheduledEmail(project.owner).sendAskAboutProjectExperienceToOrganization({"project": project})
+    if hasattr(project, 'work'):
+      AtadosScheduledEmail(project.owner).sendAskAboutProjectWorkExperienceToOrganization({"project": project})
+    else:
+      AtadosScheduledEmail(project.owner).sendAskAboutProjectJobExperienceToOrganization({"project": project})
   except Project.DoesNotExist:
     pass
