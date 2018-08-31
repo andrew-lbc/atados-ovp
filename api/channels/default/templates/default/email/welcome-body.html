@@ -8,24 +8,19 @@
 
 <p>O próximo passo agora é seu... e é muito importante!</p>
 
-{% if organization %}
-
 <p>Temos milhares de pessoas procurando por um trabalho voluntário no nosso site. Abra logo a sua vaga e já comece a engajar voluntários na sua organização.</p>
 
 <p>
   <a href="https://www.atados.com.br/painel/ong/{{ organization.slug }}/criar-vaga" class="button">ABRIR VAGAS DE VOLUNTARIADO</a>
 </p>
 
-{% else %}
 <p>Temos centenas de vagas de voluntariado abertas no site, e você precisa encontrar as que tem mais a sua cara ;)</p>
 
 <p>
   <a href="https://www.atados.com.br/vagas" class="button">ENCONTRE VAGAS DE VOLUNTARIADO</a>
 </p>
-
-{% endif %}
   
-  <p>
-  	<b>Equipe Atados</b>
-  </p>
+<p>
+  <b>Equipe Atados</b>
+</p>
 {% endblock %}
