@@ -1,5 +1,11 @@
 {% extends extend.txt %}
 
 {% block content %}
-  You have unapplied from {{apply.project.name}}.
+  Olá,
+  
+  Confirmamos que sua inscrição na vaga {{ apply.project.name }} foi cancelada com sucesso.
+  
+ 	Esperamos que você ache outra vaga em outro site para se voluntariar =)
+  
+  Equipe Parceiros Voluntários.
 {% endblock content %}
