@@ -295,6 +295,20 @@ CORS_ALLOW_HEADERS = default_headers + (
 JET_INDEX_DASHBOARD = 'ovp.apps.admin.jet.dashboard.CustomIndexDashboard'
 JET_INDEX_DASHBOARD = 'channels.pv.admin.jet.dashboard.PVIndexDashboard'
 
+# Docs
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Basic': {
+            'type': 'basic'
+      },
+      'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}
+
 if env == 'production':
   from .production import *
 else:
