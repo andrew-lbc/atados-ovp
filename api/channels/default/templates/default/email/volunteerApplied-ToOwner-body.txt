@@ -10,9 +10,7 @@
   Telefone:{{ apply.user.phone }}
   Mensagem:{{ apply.message }}
 
-  Agora é com vocês! Clique no botão aqui em baixo pra entrar em contato com ela, o mais rápido possível, e combinar os próximos passos.
-
-  RESPONDA O(A) VOLUNTÁRIO(A)
+  Agora é com vocês! Entre em contato com o voluntário via email ou telefone para combinar os próximos passos.
 
   Equipe Atados
 
