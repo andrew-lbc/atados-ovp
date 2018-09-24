@@ -125,3 +125,16 @@ def user_can_apply(request, *args, **kwargs):
     return response.Response({"status": True}, status=200)
 
   return response.Response({"status": False, "detail": "Current user cannot apply yet."}, status=400)
+
+
+@decorators.api_view(["POST"])
+def virtual_meeting_trigger(request, *args, **kwargs):
+  if request.user.pk is None:
+    return response.Response({"detail": "Authentication credentials were not provided."}, status=400)
+
+  user = User.objects.get(pk=request.user.pk)
+  user.pvuserinfo.can_apply = True
+  user.pvuserinfo.approved_by_virtual_meeting = True
+  user.save()
+
+  return response.Response({"status": True}, status=200)
