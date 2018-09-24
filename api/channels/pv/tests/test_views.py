@@ -131,3 +131,22 @@ class QuizViewSetTestCase(TestCase):
     response = self.client.post(reverse("quiz-respond"), data=data, format="json", HTTP_X_OVP_CHANNEL="pv")
     self.assertEqual(response.status_code, 400)
     self.assertEqual({"detail": "You did not meet the correct answers threesold.", "title": "answers_not_correct"}, response.data)
+
+
+@override_settings(DEFAULT_SEND_EMAIL="sync")
+class VirtualMeetingTestCase(TestCase):
+  def setUp(self):
+    self.client = APIClient()
+    self.user = User.objects.create(email="test_user", password="testpw", object_channel="pv")
+
+  def test_can_set_can_apply(self):
+    self.assertEqual(self.user.pvuserinfo.can_apply, False)
+    self.assertEqual(self.user.pvuserinfo.approved_by_virtual_meeting, False)
+
+    self.client.force_authenticate(self.user)
+    response = self.client.post(reverse("virtual-meeting-trigger"), format="json", HTTP_X_OVP_CHANNEL="pv")
+    self.assertEqual(response.status_code, 200)
+
+    self.user = User.objects.get(pk=self.user.pk)
+    self.assertEqual(self.user.pvuserinfo.can_apply, True)
+    self.assertEqual(self.user.pvuserinfo.approved_by_virtual_meeting, True)

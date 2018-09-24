@@ -135,6 +135,6 @@ def virtual_meeting_trigger(request, *args, **kwargs):
   user = User.objects.get(pk=request.user.pk)
   user.pvuserinfo.can_apply = True
   user.pvuserinfo.approved_by_virtual_meeting = True
-  user.save()
+  user.pvuserinfo.save()
 
   return response.Response({"status": True}, status=200)
