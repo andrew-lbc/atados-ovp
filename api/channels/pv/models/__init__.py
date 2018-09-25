@@ -6,6 +6,7 @@ from ovp.apps.channels.models.abstract import ChannelRelationship
 class PVUserInfo(ChannelRelationship):
   user = models.OneToOneField("users.User", verbose_name=_("user"))
   can_apply = models.BooleanField(_("Can Apply"), default=False)
+  approved_by_virtual_meeting = models.BooleanField(_("Approved by virtual meeting"), default=False)
 
   def __init__(self, *args, **kwargs):
     super(PVUserInfo, self).__init__(*args, **kwargs)
