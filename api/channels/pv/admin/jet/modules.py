@@ -6,7 +6,6 @@ from channels.pv.models import PVUserInfo
 
 class PVIndicators(Indicators):
   def init_with_context(self, context):
-    print("k")
     r = super(PVIndicators, self).init_with_context(context)
     now = timezone.now()
     able_to_apply = PVUserInfo.objects.filter(can_apply=True)

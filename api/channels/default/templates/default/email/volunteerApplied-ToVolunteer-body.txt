@@ -10,7 +10,11 @@
 
   Nome: {{apply.project.owner.name}}
   Email: {{apply.project.owner.email}}
-  Telefone: {{apply.project.owner.phone}}
+  {% if apply.project.organization.contact_phone %}
+  	Telefone: {{apply.project.organization.contact_phone}}
+  {% else %}
+  	Telefone: {{apply.project.owner.phone}}
+  {% endif %}
 
   RECADO IMPORTANTÍSSIMO!
   Não precisamos nem te lembrar da importância do seu comprometimento daqui pra frente, né? Voluntariado é muito legal, mas não é bagunça. Responda o pessoal direitinho e não esqueça de avisar caso não possa comparecer.
