@@ -26,12 +26,12 @@ import channels.pv.urls
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Snippets API",
-      default_version='v1',
-      description="Test description",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
+      title="Atados API",
+      default_version='v2',
+      description="This document describes how to interact with Atados API and its resource endpoints.",
+      terms_of_service="https://www.atados.com.br/termos/privacidade",
+      contact=openapi.Contact(email="contato@atados.com.br"),
+      license=openapi.License(name="MIT License"),
    ),
    validators=['flex', 'ssv'],
    public=True,

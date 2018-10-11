@@ -299,9 +299,6 @@ JET_INDEX_DASHBOARD = 'channels.pv.admin.jet.dashboard.PVIndexDashboard'
 # Docs
 SWAGGER_SETTINGS = {
    'SECURITY_DEFINITIONS': {
-      'Basic': {
-            'type': 'basic'
-      },
       'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',

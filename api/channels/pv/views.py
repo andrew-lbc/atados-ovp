@@ -14,6 +14,8 @@ from rest_framework import response
 from rest_framework import status
 from rest_framework import viewsets
 
+from drf_yasg.utils import swagger_auto_schema
+
 @ChannelViewSet
 class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
   """
@@ -23,6 +25,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
   """
   queryset = models.PVMeeting.objects.all()
   pagination_class = pagination.NoPagination
+  swagger_schema = None
 
   @decorators.detail_route(["POST"])
   def appoint(self, request, *args, **kwargs):
@@ -89,6 +92,7 @@ class QuizViewSet(viewsets.GenericViewSet):
   This will be deprecated once OVP has forms functionality.
   """
   permission_classes = (permissions.IsAuthenticated, )
+  swagger_schema = None
 
   @decorators.list_route(["POST"])
   def respond(self, request, *args, **kwargs):
@@ -115,6 +119,7 @@ class QuizViewSet(viewsets.GenericViewSet):
     return response.Response({"detail": "You have passed the test."}, status=status.HTTP_200_OK)
 
 
+@swagger_auto_schema(method="GET", auto_schema=None)
 @decorators.api_view(["GET"])
 def user_can_apply(request, *args, **kwargs):
   if request.user.pk is None:
@@ -127,6 +132,7 @@ def user_can_apply(request, *args, **kwargs):
   return response.Response({"status": False, "detail": "Current user cannot apply yet."}, status=400)
 
 
+@swagger_auto_schema(method="POST", auto_schema=None)
 @decorators.api_view(["POST"])
 def virtual_meeting_trigger(request, *args, **kwargs):
   if request.user.pk is None:
