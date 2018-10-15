@@ -74,3 +74,5 @@ runcelerycam.sh
 media
 .env
 .vscode
+pytest.ini
+conftest.py
