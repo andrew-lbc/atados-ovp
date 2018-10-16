@@ -19,7 +19,7 @@ def intercept_apply(sender, *args, **kwargs):
   """
   request = kwargs["request"]
   if request.method.lower() == "post" and request.channel == "pv":
-    if request.user.is_authenticated() and not request.user.pvuserinfo.can_apply:
+    if request.user.is_authenticated and not request.user.pvuserinfo.can_apply:
       raise InterceptRequest(response.Response({'detail': 'You are not yet authorized to apply. You have to participate in a meeting or respond the quiz first.'}, status=403))
 
 def create_pv_profile(sender, *args, **kwargs):

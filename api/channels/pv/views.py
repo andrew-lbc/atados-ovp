@@ -27,7 +27,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
   pagination_class = pagination.NoPagination
   swagger_schema = None
 
-  @decorators.detail_route(["POST"])
+  @decorators.action(methods=["POST"], detail=True)
   def appoint(self, request, *args, **kwargs):
     meeting = self.get_object()
     try:
@@ -40,7 +40,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
         models.PVMeetingAppointment.objects.create(user=request.user, meeting=meeting, object_channel=request.channel, special_conditions=request.data.get('special_conditions', None))
         return response.Response({"detail": "Successfully appointed."}, status=status.HTTP_200_OK)
 
-  @decorators.detail_route(["POST"])
+  @decorators.action(methods=["POST"], detail=True)
   def unappoint(self, request, *args, **kwargs):
     meeting = self.get_object()
     try:
@@ -50,7 +50,7 @@ class MeetingViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     except models.PVMeetingAppointment.DoesNotExist:
       return response.Response({"detail": "Can\'t unappoint to this meeting because you are not appointed."}, status=status.HTTP_400_BAD_REQUEST)
 
-  @decorators.list_route(["GET"])
+  @decorators.action(methods=["GET"], detail=False)
   def appointments(self, request, *args, **kwargs):
     appointments = self.get_queryset().filter(appointments__user=request.user, channel__slug=request.channel, published=True)
     serializer = self.get_serializer(appointments, many=True, context=self.get_serializer_context())
@@ -94,7 +94,7 @@ class QuizViewSet(viewsets.GenericViewSet):
   permission_classes = (permissions.IsAuthenticated, )
   swagger_schema = None
 
-  @decorators.list_route(["POST"])
+  @decorators.action(methods=["POST"], detail=False)
   def respond(self, request, *args, **kwargs):
     correct_answers = ["a", "c", "b", "a", "e"]
     threesold = 1
