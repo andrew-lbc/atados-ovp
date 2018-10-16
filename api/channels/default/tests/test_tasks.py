@@ -7,6 +7,7 @@ from django.core import mail
 
 from ovp.apps.core.helpers import get_email_subject
 from ovp.apps.users.models import User
+from ovp.apps.organizations.models import Organization
 from ovp.apps.projects.models import Project
 from ovp.apps.projects.models import Apply
 from ovp.apps.projects.models import Job
@@ -20,7 +21,8 @@ from server.celery import app
 class TestEmailTriggers(TestCase):
   def setUp(self):
     self.user = User.objects.create_user(name="a", email="testmail-projects@test.com", password="test_returned", object_channel="default")
-    self.project = Project.objects.create(name="test project", slug="test-slug", details="abc", description="abc", owner=self.user, published=False, object_channel="default")
+    self.organization = Organization.objects.create(name="test org", owner=self.user, object_channel="default")
+    self.project = Project.objects.create(name="test project", slug="test-slug", details="abc", description="abc", owner=self.user, organization=self.organization, published=False, object_channel="default")
     self.project.published = True
     self.project.save()
 
@@ -52,7 +54,7 @@ class TestEmailTriggers(TestCase):
     Apply.objects.create(user=self.user, project=self.project, object_channel="default")
 
     self.assertTrue(len(mail.outbox) == 3)
-    self.assertTrue(mail.outbox[1].subject == "Como foi sua experiência com o Atados?!")
+    self.assertTrue(mail.outbox[1].subject == "Conta pra gente como foi sua experiência?")
     self.assertTrue(">test project<" in mail.outbox[1].alternatives[0][0])
 
     mail.outbox = []
@@ -60,18 +62,18 @@ class TestEmailTriggers(TestCase):
     job = Job.objects.create(project=self.project, start_date=timezone.now(), end_date=timezone.now(), object_channel="default")
     Apply.objects.create(user=self.user, project=self.project, object_channel="default")
 
-    self.assertTrue(mail.outbox[2].subject == "Como foi sua experiência com o Atados?!")
+    self.assertTrue(mail.outbox[2].subject == "Conta pra gente como foi sua experiência?")
     self.assertTrue(">test project<" in mail.outbox[2].alternatives[0][0])
 
   def test_publishing_project_schedules_ask_about_experience_to_organization(self):
     """Assert cellery task to ask organization about project experience is created when user project is published"""
     mail.outbox = []
 
-    project = Project.objects.create(name="test project", slug="test-slug", details="abc", description="abc", owner=self.user, published=False, object_channel="default")
+    project = Project.objects.create(name="test project", slug="test-slug", details="abc", description="abc", owner=self.user, published=False, organization=self.organization, object_channel="default")
     work = Work.objects.create(project=project, object_channel="default")
     project.published = True
     project.save()
 
     self.assertTrue(len(mail.outbox) == 3)
-    self.assertTrue(mail.outbox[2].subject == "Nos conte como foi sua experiência com o Atados!")
+    self.assertTrue(mail.outbox[2].subject == "Tá na hora de contar pra gente como foi")
     self.assertTrue(">test project<" in mail.outbox[2].alternatives[0][0])
