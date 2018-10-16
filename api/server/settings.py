@@ -307,6 +307,9 @@ SWAGGER_SETTINGS = {
    }
 }
 
+# OVP Test channels
+TEST_CHANNELS=["test-channel", "channel1"]
+
 if env == 'production':
   from .production import *
 else:

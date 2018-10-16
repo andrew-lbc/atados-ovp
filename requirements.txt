@@ -14,4 +14,7 @@ conda==4.3.16
 drf-yasg
 flex
 swagger_spec_validator
+pytest
+pytest-django
+pytest-pythonpath
 -e git://github.com/leonardoarroyo/django-gcloud-storage.git@b9c4b225d95b5c380df11d10d94e5cd076f4f4d6#egg=django_gcloud_storage
