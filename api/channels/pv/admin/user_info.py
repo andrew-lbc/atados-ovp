@@ -5,10 +5,12 @@ from ovp.apps.channels.admin import ChannelModelAdmin
 from channels.pv.models import PVUserInfo
 
 class PVUserInfoAdmin(ChannelModelAdmin):
-  list_display = ["id", "get_email", "can_apply"]
-  fields = ["can_apply"]
+  list_display = ["id", "get_email", "can_apply", "approved_by_virtual_meeting"]
+  list_filter = ["can_apply", "approved_by_virtual_meeting"]
+  fields = ["can_apply", "approved_by_virtual_meeting"]
   search_fields = [
-    "user__email"
+    "user__email",
+    "user__name"
   ]
 
   def get_queryset(self, *args, **kwargs):
