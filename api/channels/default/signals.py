@@ -9,6 +9,7 @@ from ovp.apps.projects.models import Project
 from ovp.apps.ratings.models import Rating
 from ovp.apps.ratings.models import RatingRequest
 from ovp.apps.ratings.models import RatingParameter
+from ovp.apps.ratings.models import RatingAnswer
 from channels.default import tasks
 from django.utils import timezone
 
@@ -101,23 +102,36 @@ def update_scores(sender, *args, **kwargs):
   """
   instance = kwargs["instance"]
 
+  def get_score(ratings, slug):
+    s = 0
+    c = 0
+    for rating in ratings:
+      for answer in rating.answers.all():
+        if answer.parameter.slug == slug:
+          s += answer.value_quantitative
+          c += 1
+
+    if c > 0:
+      return s/c
+    return None
+
   if instance.channel.slug == "default" and not kwargs["raw"] and kwargs["created"]:
-    obj = instance.rated_object
+    obj = instance.rating.request.rated_object
 
     if isinstance(obj, User):
-      ratings = Rating.objects.filter(rated_object=obj)
-      for rating in ratings:
-        s = 0
-        c = 0
-        for answer in rating.answers:
-          if answer.parameter.slug == "volunteer-score":
-            s += answer.value_quantitative
-            c += 1
+      ratings = Rating.objects.filter(request__rated_object_user=obj)
+      score = get_score(ratings, "volunteer-score")
 
-      if c > 1:
-        obj.score = s/c
+      if score:
+        obj.rating = score
         obj.save()
 
     elif isinstance(obj, Project):
-      return 'project'
-post_save.connect(create_rating_request, sender=Rating)
+      ratings = Rating.objects.filter(request__rated_object_project=obj)
+      score = get_score(ratings, "project-score")
+
+      if score:
+        organization = obj.organization
+        organization.rating = score
+        organization.save()
+post_save.connect(update_scores, sender=RatingAnswer)

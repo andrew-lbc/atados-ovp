@@ -7,6 +7,8 @@ from ovp.apps.projects.models import Project
 from ovp.apps.projects.models import Apply
 from ovp.apps.projects.models import Job
 from ovp.apps.ratings.models import RatingRequest
+from rest_framework.reverse import reverse
+from rest_framework.test import APIClient
 
 class RatingRequestSignals(TestCase):
   def setUp(self):
@@ -29,3 +31,65 @@ class RatingRequestSignals(TestCase):
     self.project2.closed = True
     self.project2.save()
     self.assertEqual(RatingRequest.objects.all().count(), 2)
+
+  def test_organization_score(self):
+    Apply.objects.create(user=self.user, project=self.project, object_channel="default")
+    self.assertEqual(RatingRequest.objects.all().count(), 0)
+    self.project.closed = True
+    self.project.save()
+    self.assertEqual(RatingRequest.objects.all().count(), 4)
+
+    data = {
+      "answers": [
+        {
+          "parameter_slug": "project-score",
+          "value_quantitative": 1
+        },
+        {
+          "parameter_slug": "project-how-was-it",
+          "value_qualitative": "Minha resposta :-)"
+        }
+      ]
+    }
+    uuid = str(RatingRequest.objects.filter(requested_user=self.user)[1].uuid)
+    client = APIClient()
+    client.force_authenticate(user=self.user)
+    response = client.post(reverse("rating-request-rate", [uuid]), data, format="json")
+    self.assertEqual(response.status_code, 200)
+
+    data["answers"][0]["value_quantitative"] = 0
+    uuid = str(RatingRequest.objects.filter(requested_user=self.user)[3].uuid)
+    response = client.post(reverse("rating-request-rate", [uuid]), data, format="json")
+    self.assertEqual(response.status_code, 200)
+
+    organization = Organization.objects.get(pk=self.organization.pk)
+    self.assertEqual(organization.rating, 0.5)
+    
+  def test_user_score(self):
+    Apply.objects.create(user=self.user, project=self.project, object_channel="default")
+    self.assertEqual(RatingRequest.objects.all().count(), 0)
+    self.project.closed = True
+    self.project.save()
+    self.assertEqual(RatingRequest.objects.all().count(), 4)
+
+    data = {
+      "answers": [
+        {
+          "parameter_slug": "volunteer-score",
+          "value_quantitative": 1
+        }
+      ]
+    }
+    uuid = str(RatingRequest.objects.filter(requested_user=self.user)[0].uuid)
+    client = APIClient()
+    client.force_authenticate(user=self.user)
+    response = client.post(reverse("rating-request-rate", [uuid]), data, format="json")
+    self.assertEqual(response.status_code, 200)
+
+    data["answers"][0]["value_quantitative"] = 0
+    uuid = str(RatingRequest.objects.filter(requested_user=self.user)[2].uuid)
+    response = client.post(reverse("rating-request-rate", [uuid]), data, format="json")
+    self.assertEqual(response.status_code, 200)
+
+    user = User.objects.get(pk=self.user.pk)
+    self.assertEqual(user.rating, 0.5)
