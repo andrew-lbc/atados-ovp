@@ -1,8 +1,15 @@
 from datetime import timedelta
 from django.db.models.signals import post_save
 from django.db.models.signals import pre_save
+from ovp.apps.users.models import User
+from ovp.apps.organizations.models import Organization
+from ovp.apps.projects.models import Job
 from ovp.apps.projects.models import Apply
 from ovp.apps.projects.models import Project
+from ovp.apps.ratings.models import Rating
+from ovp.apps.ratings.models import RatingRequest
+from ovp.apps.ratings.models import RatingParameter
+from ovp.apps.ratings.models import RatingAnswer
 from channels.default import tasks
 from django.utils import timezone
 
@@ -68,3 +75,63 @@ def schedule_ask_about_project_experience_to_organization(sender, *args, **kwarg
       if eta:
         tasks.send_ask_about_project_experience_to_organization.apply_async(eta=eta, kwargs={"project_pk": instance.pk})
 pre_save.connect(schedule_ask_about_project_experience_to_organization, sender=Project)
+
+def create_rating_request(sender, *args, **kwargs):
+  """
+  Create rating request when project is closed
+  """
+  instance = kwargs["instance"]
+
+  if instance.channel.slug == "default" and not kwargs["raw"]:
+    try:
+      if instance.closed == True and Project.objects.get(pk=instance.pk).closed == False and instance.job:
+        for apply in instance.apply_set.all():
+          req = RatingRequest.objects.create(requested_user=instance.owner, rated_object=apply.user, object_channel=instance.channel.slug)
+          req.rating_parameters.add(RatingParameter.objects.get(slug="volunteer-score"))
+
+          req = RatingRequest.objects.create(requested_user=apply.user, rated_object=instance, object_channel=instance.channel.slug)
+          req.rating_parameters.add(RatingParameter.objects.get(slug="project-how-was-it"))
+          req.rating_parameters.add(RatingParameter.objects.get(slug="project-score"))
+    except Job.DoesNotExist:
+      pass
+pre_save.connect(create_rating_request, sender=Project)
+
+def update_scores(sender, *args, **kwargs):
+  """
+  Create rating request when project is closed
+  """
+  instance = kwargs["instance"]
+
+  def get_score(ratings, slug):
+    s = 0
+    c = 0
+    for rating in ratings:
+      for answer in rating.answers.all():
+        if answer.parameter.slug == slug:
+          s += answer.value_quantitative
+          c += 1
+
+    if c > 0:
+      return s/c
+    return None
+
+  if instance.channel.slug == "default" and not kwargs["raw"] and kwargs["created"]:
+    obj = instance.rating.request.rated_object
+
+    if isinstance(obj, User):
+      ratings = Rating.objects.filter(request__rated_object_user=obj)
+      score = get_score(ratings, "volunteer-score")
+
+      if score:
+        obj.rating = score
+        obj.save()
+
+    elif isinstance(obj, Project):
+      ratings = Rating.objects.filter(request__rated_object_project=obj)
+      score = get_score(ratings, "project-score")
+
+      if score:
+        organization = obj.organization
+        organization.rating = score
+        organization.save()
+post_save.connect(update_scores, sender=RatingAnswer)

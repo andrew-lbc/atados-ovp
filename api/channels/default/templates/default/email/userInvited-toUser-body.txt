@@ -2,7 +2,8 @@
 
 {% block content %}
   Você foi convidado para gerenciar a organização {{invite.organization.name}} no site do Atados.
-  Aceitar convite: https://www.atados.com.br/ong/{{ invite.organization.slug }}/participar
+  Aceitar convite: https://www.atados.com.br/ong/{{ invite.organization.slug }}/participar?user_slug={{ invite.invited.slug }}
+
 
   Equipe Atados
 {% endblock content %}

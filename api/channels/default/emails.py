@@ -105,3 +105,9 @@ class AtadosScheduledEmail(BaseMail):
       "edit_project_url": router.edit_project_url(context["project"].organization.slug, context["project"].slug)
     })
     return self.sendEmail('atados-askAboutProjectWorkExperience-toOrganization', 'Ask about project experience', context)
+
+  def sendRatingRequestReminder(self, context={}):
+    """
+    Sent to volunteer after project closes
+    """
+    pass
