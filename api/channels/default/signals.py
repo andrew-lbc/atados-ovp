@@ -86,10 +86,10 @@ def create_rating_request(sender, *args, **kwargs):
     try:
       if instance.closed == True and Project.objects.get(pk=instance.pk).closed == False and instance.job:
         for apply in instance.apply_set.all():
-          req = RatingRequest.objects.create(requested_user=instance.owner, rated_object=apply.user, object_channel=instance.channel.slug)
+          req = RatingRequest.objects.create(requested_user=instance.owner, rated_object=apply.user, initiator_object=instance, object_channel=instance.channel.slug)
           req.rating_parameters.add(RatingParameter.objects.get(slug="volunteer-score"))
 
-          req = RatingRequest.objects.create(requested_user=apply.user, rated_object=instance, object_channel=instance.channel.slug)
+          req = RatingRequest.objects.create(requested_user=apply.user, rated_object=instance, initiator_object=instance,  object_channel=instance.channel.slug)
           req.rating_parameters.add(RatingParameter.objects.get(slug="project-how-was-it"))
           req.rating_parameters.add(RatingParameter.objects.get(slug="project-score"))
     except Job.DoesNotExist:
