@@ -88,6 +88,7 @@ def create_rating_request(sender, *args, **kwargs):
         for apply in instance.apply_set.all():
           req = RatingRequest.objects.create(requested_user=instance.owner, rated_object=apply.user, initiator_object=instance, object_channel=instance.channel.slug)
           req.rating_parameters.add(RatingParameter.objects.get(slug="volunteer-score"))
+          req.rating_parameters.add(RatingParameter.objects.get(slug="user-has-shown"))
 
           req = RatingRequest.objects.create(requested_user=apply.user, rated_object=instance, initiator_object=instance,  object_channel=instance.channel.slug)
           req.rating_parameters.add(RatingParameter.objects.get(slug="project-how-was-it"))
