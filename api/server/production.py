@@ -32,7 +32,7 @@ MEDIA_ROOT= '/tmp'
 
 HAYSTACK_CONNECTIONS = {
   'default': {
-    'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+    'ENGINE': 'ovp.apps.search.backends.ConfigurableElasticSearchEngine',
     'URL': 'http://%s/' % (os.environ.get('HS_SEARCH_ENDPOINT', '127.0.0.1:9200')),
     'INDEX_NAME': 'atadosovp'
   },
