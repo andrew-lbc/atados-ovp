@@ -12,13 +12,14 @@ ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br', 'v2.api.
 
 # Cors
 CORS_ORIGIN_WHITELIST = [
-  'localhost:8080',
-  'integrinodejs.mybluemix.net',
-  'parceirosvoluntarios.atados.com.br',
-  'atados.com.br',
-  'integri.org',
-  'www.atados.com.br',
-  'localhost:3000',
+  'http://localhost:8080',
+  'http://integrinodejs.mybluemix.net',
+  'https://integrinodejs.mybluemix.net',
+  'https://atados.com.br',
+  'https://integri.org',
+  'https://www.atados.com.br',
+  'https://beta.atados.com.br',
+  'http://localhost:3000',
 ]
 
 # Secret key
