@@ -1,0 +1,19 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Boas vindas :)
+
+  Seu cadastro foi um sucesso e agora você faz parte do Voluntariado Transforma, uma rede viva de pessoas e organizações sociais, que se conectam e se mobilizam pelas causas mais diversas (e das formas mais diversas também) para transformar.
+
+  O próximo passo agora é seu... e é muito importante!
+
+  Temos milhares de pessoas procurando por um trabalho voluntário no nosso site. Abra logo a sua vaga e já comece a engajar voluntários na sua organização.
+
+  https://voluntariadotransforma.com.br/sou-uma-ong ABRIR VAGAS DE VOLUNTARIADO
+
+  Temos centenas de vagas de voluntariado abertas no site, e você precisa encontrar as que tem mais a sua cara ;)
+
+  https://voluntariadotransforma.com.br/vagas ENCONTRE VAGAS DE VOLUNTARIADO
+
+  Equipe Voluntariado Transforma
+{% endblock %}

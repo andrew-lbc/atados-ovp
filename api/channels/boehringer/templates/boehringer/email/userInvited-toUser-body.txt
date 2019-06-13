@@ -1,0 +1,9 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Você foi convidado para gerenciar a organização {{invite.organization.name}} no site do Voluntariado Transforma.
+  Aceitar convite: https://voluntariadotransforma.com.br/ong/{{ invite.organization.slug }}/participar?user_slug={{ invite.invited.slug }}
+
+
+  Equipe Voluntariado Transforma
+{% endblock content %}

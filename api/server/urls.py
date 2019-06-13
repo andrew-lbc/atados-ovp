@@ -22,7 +22,6 @@ from rest_framework import permissions
 
 import sandbox.urls
 import docs.urls
-import channels.pv.urls
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -44,9 +43,6 @@ urlpatterns = [
 
     # API
     url(r'^', include(sandbox.urls)),
-
-    # PV Specific endpoints
-    url(r'^pv-channel/', include(channels.pv.urls)),
 
     url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

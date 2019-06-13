@@ -1,0 +1,43 @@
+{% load inlinecss %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>OVP Email</title>
+</head>
+<body bgcolor="#E9EAEA">
+{% inlinecss "email/boehringer-base.css" %}
+<div class="email-wrapper">
+  <table bgcolor="#FFFFFF" width="600" class="head-wrap content">
+    <tr>
+      <td class="header">
+        <table class="full-width no-border-spacing">
+          <tr>
+            <td class="margin"></td>
+            <td class="logo-wrapper">
+              <img src="https://i.imgur.com/ObOOegB.png" width="150" height="150" style="width: 150px"/>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table bgcolor="#FFFFFF" class="body-wrap content full-width">
+    <tr>
+      <td>
+        <table width="600">
+          <tr>
+            <td class="body-content">
+              {% block content %}{% endblock %}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endinlinecss %}
+</body>
+
+</html>

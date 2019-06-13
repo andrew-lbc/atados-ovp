@@ -1,0 +1,28 @@
+{% extends extend.html %}
+
+{% block content %}
+
+<h1>Boas vindas :)</h1>
+
+<p>Seu cadastro foi um sucesso e agora você faz parte do Voluntariado Transforma, uma rede viva de pessoas e organizações sociais, que se conectam e se mobilizam pelas causas mais diversas (e das formas mais diversas também) para transformar.</p>
+
+<p>O próximo passo agora é seu... e é muito importante!</p>
+
+<p>Temos milhares de pessoas procurando por um trabalho voluntário no nosso site. Abra logo a sua vaga e já comece a engajar voluntários na sua organização.</p>
+
+{% if organization %}
+<p>
+  <a href="https://voluntariadotransforma.com.br/sou-uma-ong" class="button">ABRIR VAGAS DE VOLUNTARIADO</a>
+</p>
+{% endif %}
+
+<p>Temos centenas de vagas de voluntariado abertas no site, e você precisa encontrar as que tem mais a sua cara ;)</p>
+
+<p>
+  <a href="https://voluntariadotransforma.com.br/vagas" class="button">ENCONTRE VAGAS DE VOLUNTARIADO</a>
+</p>
+  
+<p>
+  <b>Equipe Voluntariado Transforma</b>
+</p>
+{% endblock %}
