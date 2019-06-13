@@ -165,6 +165,9 @@ CKEDITOR_CONFIGS = {
 
 AUTH_USER_MODEL = 'users.User'
 SILENCED_SYSTEM_CHECKS = ["auth.E003", "auth.W004"]
+OVP_USERS = {
+    'USER_REGISTER_VALIDATION_FUNCTIONS': ['channels.boehringer.validators.boehringer_user_email_validator']
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
