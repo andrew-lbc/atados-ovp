@@ -21,6 +21,7 @@ CORS_ORIGIN_WHITELIST = [
   'https://beta.atados.com.br',
   'http://localhost:3000',
   'https://voluntariadotransforma.com.br',
+  'http://voluntariadotransforma.com.br',
 ]
 
 # Secret key
