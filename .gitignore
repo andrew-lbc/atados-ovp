@@ -55,7 +55,7 @@ coverage_html_report/
 #atados
 atados.sqlite
 storage
-static
+api/static
 celerybeat-schedule
 celeryev.pid
 newsletter.txt
