@@ -14,9 +14,15 @@ class BoehringerContentFlow(BaseContentFlow):
   destination = "boehringer"
 
   def __init__(self):
-    self.category_id = Category.objects.get(slug="export-to-boehringer").pk
+    try:
+      self.category_id = Category.objects.get(slug="export-to-boehringer").pk
+    except:
+      self.category_id = None
 
   def get_filter_searchqueryset_q_obj(self, model_class):
+    if not self.category_id:
+      raise NoContentFlow
+
     if model_class == Project:
       return SQ(categories=self.category_id)
     elif model_class == Organization:
@@ -25,6 +31,9 @@ class BoehringerContentFlow(BaseContentFlow):
     raise NoContentFlow
 
   def get_filter_queryset_q_obj(self, model_class):
+    if not self.category_id:
+      raise NoContentFlow
+
     if model_class == Project:
       return Q(categories=self.category_id)
     elif model_class == Organization:
