@@ -51,7 +51,6 @@ def foward_func(apps, schema_editor):
 def rewind_func(apps, schema_editor):
     return True
 
-
 class Migration(migrations.Migration):
 
     dependencies = [
