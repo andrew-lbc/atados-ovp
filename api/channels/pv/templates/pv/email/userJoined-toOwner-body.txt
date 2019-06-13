@@ -1,5 +1,0 @@
-{% extends extend.txt %}
-
-{% block content %}
-  User {{user.name}} ({{user.email}}) has joined your organization {{organization.name}}.
-{% endblock content %}

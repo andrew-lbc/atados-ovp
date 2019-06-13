@@ -1,5 +1,0 @@
-{% extends extend.txt %}
-
-{% block content %}
-  You invited {{invited.name}} to organization {{organization.name}}.
-{% endblock content %}

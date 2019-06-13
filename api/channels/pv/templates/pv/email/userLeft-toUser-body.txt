@@ -1,5 +1,0 @@
-{% extends extend.txt %}
-
-{% block content %}
-  You have left organization {{organization.name}}.
-{% endblock content %}

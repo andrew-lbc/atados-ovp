@@ -1,1 +1,0 @@
-Override email subjects by creating a template named {emailTemplate}-subject.txt

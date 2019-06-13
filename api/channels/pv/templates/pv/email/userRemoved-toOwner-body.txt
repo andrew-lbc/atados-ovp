@@ -1,5 +1,0 @@
-{% extends extend.txt %}
-
-{% block content %}
-  You have been removed from organization {{organization.name}}.
-{% endblock content %}

@@ -57,7 +57,6 @@ INSTALLED_APPS = get_core_apps() + [
     'debug_toolbar',
     'email_log',
     'docs',
-    'channels.pv',
     'channels.default',
     'ckeditor',
     'oauth2_provider',
@@ -87,7 +86,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'channels', 'default', 'templates'), os.path.join(BASE_DIR, 'channels', 'pv', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'channels', 'default', 'templates'), os.path.join(BASE_DIR, 'channels', 'boehringer', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -351,7 +350,6 @@ CORS_ALLOW_HEADERS = default_headers + (
 # Jet
 
 JET_INDEX_DASHBOARD = 'ovp.apps.admin.jet.dashboard.CustomIndexDashboard'
-JET_INDEX_DASHBOARD = 'channels.pv.admin.jet.dashboard.PVIndexDashboard'
 
 # Docs
 SWAGGER_SETTINGS = {
