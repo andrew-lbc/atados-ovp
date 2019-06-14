@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = False
 
 # Allowed hosts
-ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br', 'v2.api.atados.com.br', '.admin.atados.com.br']
+ALLOWED_HOSTS = ['api.beta.atados.com.br', '.admin.beta.atados.com.br', 'v2.api.atados.com.br', '.admin.atados.com.br', '.admin.voluntariadotransforma.com.br']
 
 # Cors
 CORS_ORIGIN_WHITELIST = [
