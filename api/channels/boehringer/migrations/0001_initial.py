@@ -56,7 +56,8 @@ class Migration(migrations.Migration):
     dependencies = [
         ('default', '0001_initial'),
         ('channels', '0008_channel_subchannels'),
-        ('core', '0021_auto_20171005_1902')
+        ('core', '0021_auto_20171005_1902'),
+        ('projects', '0084_auto_20190418_2028'),
     ]
 
     operations = [
