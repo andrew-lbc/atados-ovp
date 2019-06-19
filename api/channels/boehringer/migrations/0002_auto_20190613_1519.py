@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('boehringer', '0001_initial'),
+        ('projects', '0048_auto_20170822_1732'),
     ]
 
     operations = [
