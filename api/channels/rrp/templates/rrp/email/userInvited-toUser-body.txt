@@ -1,0 +1,9 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Você foi convidado para gerenciar a organização {{invite.organization.name}} no site do Rede Real Panorama.
+  Aceitar convite: https://rederealpanorama.com.br/ong/{{ invite.organization.slug }}/participar?user_slug={{ invite.invited.slug }}
+
+
+  Equipe Rede Real Panorama
+{% endblock content %}

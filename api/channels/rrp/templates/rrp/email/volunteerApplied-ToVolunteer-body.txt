@@ -1,0 +1,23 @@
+{% extends extend.txt %}
+
+{% block content %}
+
+  Você se inscreveu em uma vaga :)
+
+  Ebaaa! Caiu pra gente aqui que você se inscreveu na vaga {{apply.project.name}} :)
+
+  O pessoal responsável já recebeu sua mensagem e agora eles devem entrar em contato com você. Mas, se tiver afim de já ir adiantando as coisas, seguem abaixo os dados deles:
+
+  Nome: {{apply.project.owner.name}}
+  Email: {{apply.project.owner.email}}
+  {% if apply.project.organization.contact_phone %}
+  	Telefone: {{apply.project.organization.contact_phone}}
+  {% else %}
+  	Telefone: {{apply.project.owner.phone}}
+  {% endif %}
+
+  RECADO IMPORTANTÍSSIMO!
+  Não precisamos nem te lembrar da importância do seu comprometimento daqui pra frente, né? Voluntariado é muito legal, mas não é bagunça. Responda o pessoal direitinho e não esqueça de avisar caso não possa comparecer.
+
+  Equipe Rede Real Panorama
+{% endblock content %}

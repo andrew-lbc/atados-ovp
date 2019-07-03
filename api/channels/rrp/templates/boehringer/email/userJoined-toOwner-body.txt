@@ -1,8 +1,0 @@
-{% extends extend.txt %}
-
-{% block content %}
-  Novo membro na organização
-  O usuário {{user.name}}({{user.email}}) agora faz parte da organização {{organization.name}}.
-
-  Equipe Voluntariado Transforma
-{% endblock content %}

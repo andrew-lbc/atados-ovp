@@ -1,0 +1,23 @@
+{% extends extend.html %}
+
+{% block content %}
+
+  <h1>Você se inscreveu em uma vaga :)</h1>
+
+  <p>Ebaaa! Caiu pra gente aqui que você se inscreveu na vaga {{apply.project.name}} :)</p>
+
+  <p>O pessoal responsável já recebeu sua mensagem e agora eles devem entrar em contato com você. Mas, se tiver afim de já ir adiantando as coisas, seguem abaixo os dados deles:</p>
+
+  <p><b>Nome:</b> {{apply.project.owner.name}}</p>
+  <p><b>Email:</b> {{apply.project.owner.email}}</p>
+  {% if apply.project.organization.contact_phone %}
+  	<p><b>Telefone:</b> {{apply.project.organization.contact_phone}}</p>
+  {% else %}
+  	<p><b>Telefone:</b> {{apply.project.owner.phone}}</p>
+  {% endif %}
+
+  <h2>RECADO IMPORTANTÍSSIMO!</h2>
+  <p>Não precisamos nem te lembrar da importância do seu comprometimento daqui pra frente, né? Voluntariado é muito legal, mas não é bagunça. Responda o pessoal direitinho e não esqueça de avisar caso não possa comparecer.</p>
+
+  <p><b>Equipe Rede Real Panorama</b></p>
+{% endblock %}

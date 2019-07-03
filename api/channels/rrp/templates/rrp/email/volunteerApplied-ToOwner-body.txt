@@ -1,0 +1,16 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Nova inscrição :)
+
+  Oi, uma nova pessoa se inscreveu na vaga {{apply.project.name}}!
+
+  Nome:{{ apply.user.name }}
+  Email:{{ apply.user.email }}
+  Telefone:{{ apply.user.phone }}
+
+  Agora é com vocês! Entre em contato com o voluntário via email ou telefone para combinar os próximos passos.
+
+  Equipe Rede Real Panorama
+
+{% endblock content %}

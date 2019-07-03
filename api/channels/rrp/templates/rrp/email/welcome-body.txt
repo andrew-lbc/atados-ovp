@@ -1,0 +1,16 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Boas vindas :)
+
+  Seu cadastro foi um sucesso e agora você faz parte da Rede Real Panorama, uma rede viva de colaboradores e organizações sociais que se conectam e se mobilizam pelas causas sociais mais diversas para transformar.
+
+  O próximo passo agora é seu... e é muito importante!
+
+  Temos diversas vagas abertas no site, você só precisa encontar a que tem mais a sua cara ;)
+
+  https://rederealpanorama.com.br/vagas ENCONTRE VAGAS DE VOLUNTARIADO
+
+  Equipe Rede Real Panorama
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends extend.html %}
+
+{% block content %}
+  <h1>Recuperação de senha</h1>
+  <p>
+    Olá! Você clicou em recuperar senha na plataforma Rede Real Panorama. Clique abaixo para redefinir sua senha:
+  </p>
+  <p>
+    <a href="https://rederealpanorama.com.br/recuperar-senha?token={{ token.token }}" class="btn btn-pink btn-large">
+      Recuperar senha
+    </a>
+  </p>
+  <p>Caso não tenha feito esta solicitação, ignore este e-mail.</p>
+  <p>Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)</p>
+  <p><b>Equipe Rede Real Panorama</b></p>
+{% endblock %}

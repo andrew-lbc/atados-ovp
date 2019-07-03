@@ -1,0 +1,10 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Olá,
+
+  Obrigado por utilizar nossa plataforma para sua ação de voluntariado.
+  Informamos que, para manter o site sempre atualizado, nós arquivamos a ação {{ project.name }} e ela não está mais disponível para inscrições.
+
+  Abraço, equipe Rede Real Panorama
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Recuperação de senha
+
+  Olá! Você clicou em recuperar senha na plataforma Rede Real Panorama. Clique abaixo para redefinir sua senha:
+
+  Recuperar senha (https://rederealpanorama.com.br/recuperar-senha?token={{ token.token }})
+
+  Caso não tenha feito esta solicitação, ignore este e-mail.
+
+  Qualquer dúvida, crítica ou sugestão, fale com a gente. ;)
+
+  Equipe Rede Real Panorama
+{% endblock content %}

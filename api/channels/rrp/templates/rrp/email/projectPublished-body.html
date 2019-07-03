@@ -1,0 +1,30 @@
+{% extends extend.html %}
+
+{% block content %}
+  
+<h1>Vaga publicada :)</h1>
+
+<p>Oi, a vaga <b>{{ project.name }}</b> tá no ar! Você já pode divulgar ela em suas redes sociais. Nós também vamos tentar fazer ela bombar de inscrições.</p>
+
+<p>Vocês receberão um novo email toda vez que algum(a) voluntário(a) se inscrever.</p>
+
+<p>Depois daí, não tem jeito, é com vocês! Precisa entrar em contato e combinar os próximos passos. Garantindo que seja rápido, pra pessoa não desanimar!</p>
+
+<h2>DICAS QUENTES</h2>
+
+<ul class="checklist">
+    <li>
+        <p><b>Antes da ação</b></p>
+        <p>Montem um email padrão, com todas as informações importantes, para facilitar na hora de responder as pessoas que se inscreverem nesta vaga, preparem uma capacitação e respondam rapidamente os(as) inscritos(as).</p>
+    </li>
+    <li>
+        <p><b>Durante a ação</b></p>
+        <p>Deixem bem alinhadas as expectativas e responsabilidades dos dois lados, estabeleçam acordos claros, apresentem a instituição e assinem sempre um termo de voluntariado.</p>
+    </li>
+</ul>
+
+<p><a href="https://rederealpanorama.com.br/vaga/{{ project.slug }}" class="button">CONFIRA COMO ESTÁ SUA VAGA</a></p>
+
+<p><b>Equipe Rede Real Panorama</b></p>
+
+{% endblock %}

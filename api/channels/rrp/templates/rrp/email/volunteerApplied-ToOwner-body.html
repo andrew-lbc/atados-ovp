@@ -1,0 +1,17 @@
+{% extends extend.html %}
+
+{% block content %} 
+  <h1>Nova inscrição :)</h1>
+
+  <p>Oi, uma nova pessoa se inscreveu na vaga <b>{{apply.project.name}}</b>!</p>
+
+  <p><b>Nome:</b>{{ apply.user.name }}</p>
+  <p><b>Email:</b>{{ apply.user.email }}</p>
+  <p><b>Telefone:</b>{{ apply.user.phone }}</p> 
+
+  <p>Agora é com vocês! Clique no botão aqui em baixo pra entrar em contato com ela, o mais rápido possível, e combinar os próximos passos.</p>
+
+  <p><a href="mailto:{{ apply.user.email }}" class="button">RESPONDA O(A) VOLUNTÁRIO(A)</a></p>
+
+  <p><b>Equipe Rede Real Panorama</b></p>
+{% endblock %}

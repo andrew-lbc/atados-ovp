@@ -1,0 +1,15 @@
+{% extends extend.txt %}
+
+{% block content %}
+Tá na hora de voltar pra gente :)
+
+Oi, bateu aquela saudade por aqui. Já faz seis meses que vocês não dão as caras lá no nosso site :/
+
+Então resolvemos dar uma passada pra te lembrar que 9 em cada 10 vagas abertas no Rede Real Panorama tem voluntários(as) inscritos(as), ou seja, as chances de vocês conseguirem alguém pra dar aquela força neste próximo semestre são graaandes!
+
+Bora criar uma nova vaga?
+
+https://rederealpanorama.com.br/painel/ong/{{ organization.slug }}/criar-vaga CRIE UMA NOVA VAGA
+
+Equipe Rede Real Panorama
+{% endblock content %}

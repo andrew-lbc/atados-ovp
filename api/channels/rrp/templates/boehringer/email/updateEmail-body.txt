@@ -1,9 +1,0 @@
-{% extends extend.txt %}
-
-{% block content %}
-  Email Alterado
-
-  Olá, {{ name }}. Seu email de acesso no Voluntariado Transforma foi alterado com sucesso para {{ email }}.
-
-  Caso essa alteração não tenha sido feita por você, entre em contato com Voluntariado Transforma por esse link.
-{% endblock %}

@@ -1,0 +1,9 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Email Alterado
+
+  Olá, {{ name }}. Seu email de acesso no Rede Real Panorama foi alterado com sucesso para {{ email }}.
+
+  Caso essa alteração não tenha sido feita por você, entre em contato com Rede Real Panorama por esse link.
+{% endblock %}

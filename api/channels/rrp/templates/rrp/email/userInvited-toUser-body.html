@@ -1,0 +1,16 @@
+{% extends extend.html %}
+
+{% block content %}
+  <h1>
+    Convite de gerenciamento
+  </h1>
+  <p>
+    Você foi convidado para gerenciar a organização {{invite.organization.name}} no site do Rede Real Panorama.
+  </p>
+  <p>
+  <a href="https://rederealpanorama.com.br/ong/{{ invite.organization.slug }}/participar?user_slug={{ invite.invited.slug }}" class="btn btn-pink btn-large">
+      Aceitar convite
+    </a>
+  </p>
+  <p><b>Equipe Rede Real Panorama</b></p>
+{% endblock %}

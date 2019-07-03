@@ -1,0 +1,24 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Vaga publicada :)
+
+  Oi, a vaga {{ project.name }} tá no ar! Você já pode divulgar ela em suas redes sociais. Nós também vamos tentar fazer ela bombar de inscrições.
+
+  Vocês receberão um novo email toda vez que algum(a) voluntário(a) se inscrever.
+
+  Depois daí, não tem jeito, é com vocês! Precisa entrar em contato e combinar os próximos passos. Garantindo que seja rápido, pra pessoa não desanimar!
+
+  DICAS QUENTES
+
+  Antes da ação
+  Montem um email padrão, com todas as informações importantes, para facilitar na hora de responder as pessoas que se inscreverem nesta vaga, preparem uma capacitação e respondam rapidamente os(as) inscritos(as).
+
+  Durante a ação
+  Deixem bem alinhadas as expectativas e responsabilidades dos dois lados, estabeleçam acordos claros, apresentem a instituição e assinem sempre um termo de voluntariado.
+
+  https://rederealpanorama.com.br/vaga/{{ project.slug }} CONFIRA COMO ESTÁ SUA VAGA
+
+  Equipe Rede Real Panorama
+
+{% endblock content %}

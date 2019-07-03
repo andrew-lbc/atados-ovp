@@ -1,0 +1,13 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Olá!
+  Informamos que o (a) voluntário(a) {{apply.user.name}} optou por cancelar a inscrição na sua vaga.
+
+  Não se preocupe. Isso pode ter acontecido por indisponibilidade ou mudança de planos dele(a). E assim você sabe exatamente com que poderá contar no dia da ação.
+
+  Lembre-se de manter contato com seus voluntários, ok?
+  Bom trabalho lá!
+
+  Abraço, equipe Rede Real Panorama
+{% endblock content %}

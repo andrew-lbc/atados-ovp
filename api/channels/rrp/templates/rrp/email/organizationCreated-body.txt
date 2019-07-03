@@ -1,0 +1,21 @@
+{% extends extend.txt %}
+
+{% block content %}
+  Cadastro recebido :)
+
+  Oi, é isso ai! O cadastro foi enviado com sucesso e agora vocês + a gente + outras centenas de organizações,
+  formamos (o que gostamos de chamar de) uma "rede viva de transformação".
+
+  Vamos dar uma olhada no cadastro e, tudo estando “nos conformes”, já publicamos no site.
+
+  Checklist “nos conformes”:
+
+  Logo com boa resolução. (tamanho: 200x200px)
+  Imagem de capa bonitona! (tamanho: 1440x340px)
+  No quadro "Detalhe" garantam um texto bom e curto, explicando resumidamente quem são vocês.
+  Já no quadro "Descrição" podem falar mais, como: qual o público atendido, atividades desenvolvidas, objetivos da organização...
+
+  https://rederealpanorama.com.br/painel/ong/{{ organization.slug }}/editar DEIXE SEU CADASTRO “NOS CONFORMES”
+
+  Equipe Rede Real Panorama
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends extend.html %}
+
+{% block content %}
+<h1>Cadastro recebido :)</h1>
+
+<p>Oi, é isso ai! O cadastro foi enviado com sucesso e agora vocês + a gente + outras centenas de organizações, 
+formamos (o que gostamos de chamar de) uma "rede viva de transformação". </p>
+
+<p>Vamos dar uma olhada no cadastro e, tudo estando “nos conformes”, já publicamos no site.</p>
+
+<h2>Checklist “nos conformes”:</h2>
+
+<ul class="checklist">
+    <li>
+        <p><b>Logo</b> com boa resolução. (tamanho: 200x200px)</p>
+    </li>
+    <li>
+        <p><b>Imagem de capa</b> bonitona! (tamanho: 1440x340px)</p>
+    </li>
+    <li>
+        <p>No quadro <b>"Detalhe"</b> garantam um texto bom e curto, explicando resumidamente quem são vocês.</p>
+    </li>
+    <li>
+        <p>Já no quadro <b>"Descrição"</b> podem falar mais, como: qual o público atendido, atividades desenvolvidas, objetivos da organização...</p>
+    </li>
+</ul>
+
+
+<p><a class="button" href="https://rederealpanorama.com.br/painel/ong/{{ organization.slug }}/editar">DEIXE SEU CADASTRO “NOS CONFORMES”</a></p>
+
+<p><b>Equipe Rede Real Panorama</b></p>
+{% endblock %}
