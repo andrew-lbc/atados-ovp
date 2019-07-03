@@ -59,6 +59,7 @@ INSTALLED_APPS = get_core_apps() + [
     'docs',
     'channels.default',
     'channels.boehringer',
+    'channels.rrp',
     'ckeditor',
     'oauth2_provider',
     'social_django',
@@ -87,7 +88,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'channels', 'default', 'templates'), os.path.join(BASE_DIR, 'channels', 'boehringer', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'channels', 'default', 'templates'), os.path.join(BASE_DIR, 'channels', 'boehringer', 'templates'), os.path.join(BASE_DIR, 'channels', 'rrp', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

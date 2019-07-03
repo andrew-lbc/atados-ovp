@@ -6,10 +6,10 @@ from django.db import migrations
 
 def foward_func(apps, schema_editor):
     Channel = apps.get_model("channels", "Channel")
-    channel = Channel.objects.get(slug="default")
+    channel = Channel.objects.get(slug="rrp")
 
     Category = apps.get_model("projects", "Category")
-    category = Category.objects.create(name="export-to-boehringer", slug="export-to-boehringer", channel=channel)
+    category = Category.objects.create(name="rrp-to-atados", slug="rrp-to-atados", channel=channel)
 
 
 def rewind_func(apps, schema_editor):
@@ -19,7 +19,7 @@ def rewind_func(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('boehringer', '0001_initial'),
+        ('rrp', '0001_initial'),
         ('projects', '0048_auto_20170822_1732'),
     ]
 
