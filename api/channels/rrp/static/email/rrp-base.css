@@ -119,12 +119,12 @@ table.content {
 }
 
 h1 {
-  color: #FEA200;
+  color: #3AAA48;
   font-size: 32px;
   margin: 12px 0px 22px;
 }
 h2 {
-  color: #0062BF;
+  color: #3AAA48;
   font-size: 16px;
   margin-bottom: 8px;
 }
@@ -141,7 +141,7 @@ a.button {
   padding: 16px 40px;
   border-radius: 4px;
   font-weight: bold;
-  background: #0062BF;
+  background: #3AAA48;
   text-decoration: none;
   margin: 10px;
   display: inline-block;
